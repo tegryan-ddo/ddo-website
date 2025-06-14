@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on Digital DevOps</title>
+    <link>https://digitaldevops.io/tags/devops/</link>
+    <description>Recent content in DevOps on Digital DevOps</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Oct 2018 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="https://digitaldevops.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DevOps, we&#39;re doing it wrong (still)</title>
+      <link>https://digitaldevops.io/blog/devops-doing-it-wrong/</link>
+      <pubDate>Tue, 30 Oct 2018 13:07:31 +0200</pubDate>
+      
+      <guid>https://digitaldevops.io/blog/devops-doing-it-wrong/</guid>
+      <description>DevOps - We need to think &amp;ldquo;change management&amp;rdquo; Simply put, SaaS software development is a continuous excercise in change management. You have your development team creating as many changes as they can, and your leads and managers making sure those changes are generally aligned to the larger context of the organization by reviewing and approving them. I think it&amp;rsquo;s a safe statement to say that any CTO would love %100 of the development team&amp;rsquo;s time be dedicated to just that - to solving &amp;ldquo;business problems&amp;rdquo; as it&amp;rsquo;s commonly called.</description>
+    </item>
+    
+  </channel>
+</rss>

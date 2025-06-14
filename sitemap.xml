@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://digitaldevops.io/blog/</loc>
+    <lastmod>2018-10-30T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/categories/</loc>
+    <lastmod>2018-10-30T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/tags/devops/</loc>
+    <lastmod>2018-10-30T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/categories/devops/</loc>
+    <lastmod>2018-10-30T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/blog/devops-doing-it-wrong/</loc>
+    <lastmod>2018-10-30T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/</loc>
+    <lastmod>2018-10-30T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/tags/</loc>
+    <lastmod>2018-10-30T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/tags/go/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/tags/golang/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/tags/hugo/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/blog/linked-post/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/tags/programming/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/categories/programming/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/tags/theme/</loc>
+    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/blog/go-is-for-lovers/</loc>
+    <lastmod>2015-09-17T13:47:08+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/blog/hugo-is-for-lovers/</loc>
+    <lastmod>2015-08-03T13:39:46+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/categories/pseudo/</loc>
+    <lastmod>2015-08-03T13:39:46+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/blog/creating-a-new-theme/</loc>
+    <lastmod>2015-06-24T13:50:46+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/categories/starting/</loc>
+    <lastmod>2015-06-24T13:50:46+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/apply/</loc>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/clients/</loc>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/hire-us/</loc>
+  </url>
+  
+  <url>
+    <loc>https://digitaldevops.io/services/</loc>
+  </url>
+  
+</urlset>
