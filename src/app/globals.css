@@ -1,26 +1,77 @@
-@import "tailwindcss";
+/* Copy your existing CSS here or import it */
+@import url('/css/bootstrap.min.css');
+@import url('/css/owl.carousel.css');
+@import url('/css/font-awesome.min.css');
+@import url('/css/airspace-local-fonts.css');
+@import url('/css/airspace.css');
+@import url('/css/style.css');
+@import url('/css/ionicons.min.css');
+@import url('/css/animate.css');
+@import url('/css/responsive.css');
+@import url('/css/syntax.css');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Address block styling */
+.address-block {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.address-block li {
+  padding: 10px 0;
+  font-size: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.address-block li i {
+  margin-right: 10px;
+  color: #655E7A;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Social icons */
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #655E7A;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icons li a:hover {
+  background: #353240;
+  transform: scale(1.1);
+}
+
+/* Testimonial styling */
+.testimonial-author h5 {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.testimonial-author p {
+  margin: 5px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Form select styling */
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
 }
