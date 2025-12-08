@@ -5,9 +5,18 @@ import prisma from '@/lib/prisma'
 export async function GET(request: NextRequest) {
   try {
     const includeDeleted = request.nextUrl.searchParams.get('includeDeleted') === 'true'
+    const boardId = request.nextUrl.searchParams.get('boardId')
+
+    const where: { isDeleted?: boolean; boardId?: string | null } = includeDeleted ? {} : { isDeleted: false }
+    if (boardId) {
+      where.boardId = boardId
+    } else {
+      // If no boardId specified, get cards without a board (legacy cards)
+      where.boardId = null
+    }
 
     const cards = await prisma.kanbanCard.findMany({
-      where: includeDeleted ? {} : { isDeleted: false },
+      where,
       orderBy: [
         { status: 'asc' },
         { position: 'asc' },
@@ -36,6 +45,7 @@ export async function POST(request: NextRequest) {
       priority = 'MEDIUM',
       type = 'TASK',
       dueDate,
+      boardId,
       createdById,
       createdByName,
       assignedToId,
@@ -64,6 +74,7 @@ export async function POST(request: NextRequest) {
         type,
         position: (maxPosition._max.position ?? -1) + 1,
         dueDate: dueDate ? new Date(dueDate) : null,
+        boardId,
         createdById,
         createdByName,
         assignedToId,

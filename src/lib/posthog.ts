@@ -27,7 +27,7 @@ interface PostHog {
   capture: (event: string, properties?: Record<string, unknown>) => void
   identify: (distinctId: string, properties?: Record<string, unknown>) => void
   reset: () => void
-  isFeatureEnabled: (key: string) => boolean
+  isFeatureEnabled: (key: string) => boolean | undefined
   getFeatureFlag: (key: string) => unknown
   onFeatureFlags: (callback: () => void) => void
 }
@@ -114,7 +114,7 @@ export function resetUser(): void {
  */
 export function isFeatureEnabled(key: string): boolean {
   if (!isBrowser || !window.posthog) return false
-  return window.posthog.isFeatureEnabled(key)
+  return window.posthog.isFeatureEnabled(key) ?? false
 }
 
 /**

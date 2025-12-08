@@ -84,7 +84,7 @@ export default function KanbanColumn({
       {/* Column Content */}
       <div
         ref={setNodeRef}
-        className="flex-1 p-2 space-y-2 overflow-y-auto min-h-[200px] max-h-[calc(100vh-280px)]"
+        className="flex-1 p-2 space-y-2 min-h-[200px]"
       >
         <SortableContext
           items={cards.map((c) => c.id)}

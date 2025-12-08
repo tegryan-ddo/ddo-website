@@ -31,6 +31,12 @@ function PlanningContent({ user }: { user: UserData }) {
           <h1 className="text-xl font-semibold">Digital DevOps</h1>
           <nav className="hidden md:flex items-center gap-4">
             <a
+              href="/"
+              className="text-sm text-zinc-400 hover:text-white transition-colors"
+            >
+              Main Site
+            </a>
+            <a
               href="/planning"
               className="text-sm text-white font-medium"
             >

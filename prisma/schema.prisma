@@ -82,6 +82,30 @@ model UserProfile {
 // Trello-like card/column system for project planning
 // ============================================================================
 
+model KanbanBoard {
+  id          String       @id @default(cuid())
+  name        String
+  position    Int          @default(0) // Order in tab list
+
+  // Who created the board
+  createdById   String?    // Cognito user ID
+  createdByName String?
+
+  // Cards in this board
+  cards       KanbanCard[]
+
+  // Soft delete
+  isDeleted   Boolean      @default(false)
+  deletedAt   DateTime?
+
+  // Timestamps
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([isDeleted])
+  @@index([createdById])
+}
+
 enum CardStatus {
   BACKLOG
   ON_DECK
@@ -114,6 +138,10 @@ model KanbanCard {
   type        CardType     @default(TASK)
   position    Int          @default(0) // Order within column
 
+  // Board relationship (optional for backwards compatibility)
+  boardId     String?
+  board       KanbanBoard? @relation(fields: [boardId], references: [id])
+
   // Optional due date
   dueDate     DateTime?
 
@@ -135,4 +163,5 @@ model KanbanCard {
   @@index([isDeleted])
   @@index([createdById])
   @@index([assignedToId])
+  @@index([boardId])
 }

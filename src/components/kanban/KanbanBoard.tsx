@@ -17,6 +17,7 @@ import { sortableKeyboardCoordinates } from '@dnd-kit/sortable'
 import KanbanColumn from './KanbanColumn'
 import KanbanCard, { Card } from './KanbanCard'
 import AddCardModal from './AddCardModal'
+import BoardTabs, { Board } from './BoardTabs'
 
 const COLUMNS = [
   { id: 'BACKLOG', title: 'Backlog' },
@@ -36,6 +37,8 @@ interface KanbanBoardProps {
 }
 
 export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
+  const [boards, setBoards] = useState<Board[]>([])
+  const [activeBoard, setActiveBoard] = useState<Board | null>(null)
   const [cards, setCards] = useState<Card[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [activeCard, setActiveCard] = useState<Card | null>(null)
@@ -54,10 +57,20 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
     })
   )
 
-  // Fetch cards on mount
+  // Fetch boards on mount
   useEffect(() => {
-    fetchCards()
+    fetchBoards()
   }, [])
+
+  // Fetch cards when active board changes
+  useEffect(() => {
+    if (activeBoard) {
+      fetchCards(activeBoard.id)
+    } else {
+      // Fetch legacy cards (no board assigned)
+      fetchCards(null)
+    }
+  }, [activeBoard])
 
   // Auto-clear deleted cards after 30 seconds
   useEffect(() => {
@@ -71,17 +84,107 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
     return () => clearInterval(interval)
   }, [])
 
-  const fetchCards = async () => {
+  const fetchBoards = async () => {
     try {
-      const res = await fetch('/api/cards')
+      const res = await fetch('/api/boards')
+      const data = await res.json()
+      if (data.boards && data.boards.length > 0) {
+        setBoards(data.boards)
+        // Select first board if none selected
+        if (!activeBoard) {
+          setActiveBoard(data.boards[0])
+        }
+      } else {
+        // Create a default board if none exist
+        const createRes = await fetch('/api/boards', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: 'Main Board',
+            createdById: userId,
+            createdByName: userName,
+          }),
+        })
+        const createData = await createRes.json()
+        if (createData.board) {
+          setBoards([createData.board])
+          setActiveBoard(createData.board)
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching boards:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const fetchCards = async (boardId: string | null) => {
+    try {
+      const url = boardId
+        ? `/api/cards?boardId=${boardId}`
+        : '/api/cards'
+      const res = await fetch(url)
       const data = await res.json()
       if (data.cards) {
         setCards(data.cards)
       }
     } catch (error) {
       console.error('Error fetching cards:', error)
-    } finally {
-      setIsLoading(false)
+    }
+  }
+
+  const handleCreateBoard = async (name: string) => {
+    try {
+      const res = await fetch('/api/boards', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          createdById: userId,
+          createdByName: userName,
+        }),
+      })
+      const data = await res.json()
+      if (data.board) {
+        setBoards((prev) => [...prev, data.board])
+        setActiveBoard(data.board)
+      }
+    } catch (error) {
+      console.error('Error creating board:', error)
+    }
+  }
+
+  const handleRenameBoard = async (id: string, name: string) => {
+    try {
+      const res = await fetch(`/api/boards/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name }),
+      })
+      const data = await res.json()
+      if (data.board) {
+        setBoards((prev) =>
+          prev.map((b) => (b.id === id ? { ...b, name } : b))
+        )
+        if (activeBoard?.id === id) {
+          setActiveBoard((prev) => prev ? { ...prev, name } : null)
+        }
+      }
+    } catch (error) {
+      console.error('Error renaming board:', error)
+    }
+  }
+
+  const handleDeleteBoard = async (id: string) => {
+    try {
+      await fetch(`/api/boards/${id}`, { method: 'DELETE' })
+      const remainingBoards = boards.filter((b) => b.id !== id)
+      setBoards(remainingBoards)
+      if (activeBoard?.id === id && remainingBoards.length > 0) {
+        setActiveBoard(remainingBoards[0])
+      }
+    } catch (error) {
+      console.error('Error deleting board:', error)
     }
   }
 
@@ -103,6 +206,7 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
         body: JSON.stringify({
           ...cardData,
           status: addToColumn,
+          boardId: activeBoard?.id,
           createdById: userId,
           createdByName: userName,
         }),
@@ -134,13 +238,17 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
 
       if (!res.ok) {
         // Revert on failure
-        fetchCards()
+        if (activeBoard) {
+          fetchCards(activeBoard.id)
+        }
       }
     } catch (error) {
       console.error('Error updating card:', error)
-      fetchCards()
+      if (activeBoard) {
+        fetchCards(activeBoard.id)
+      }
     }
-  }, [])
+  }, [activeBoard])
 
   const deleteCard = useCallback(async (id: string) => {
     const cardToDelete = cards.find((c) => c.id === id)
@@ -198,14 +306,14 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
     const overId = over.id as string
 
     // Find the cards
-    const activeCard = cards.find((c) => c.id === activeId)
-    if (!activeCard) return
+    const draggedCard = cards.find((c) => c.id === activeId)
+    if (!draggedCard) return
 
     // Check if we're over a column
     const overColumn = COLUMNS.find((col) => col.id === overId)
     if (overColumn) {
       // Moving to an empty column or the column header
-      if (activeCard.status !== overColumn.id) {
+      if (draggedCard.status !== overColumn.id) {
         setCards((prev) =>
           prev.map((card) =>
             card.id === activeId
@@ -219,10 +327,10 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
 
     // We're over another card
     const overCard = cards.find((c) => c.id === overId)
-    if (!overCard || activeCard.id === overCard.id) return
+    if (!overCard || draggedCard.id === overCard.id) return
 
     // If different columns, move to that column
-    if (activeCard.status !== overCard.status) {
+    if (draggedCard.status !== overCard.status) {
       setCards((prev) =>
         prev.map((card) =>
           card.id === activeId
@@ -242,11 +350,11 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
     const activeId = active.id as string
     const overId = over.id as string
 
-    const activeCard = cards.find((c) => c.id === activeId)
-    if (!activeCard) return
+    const draggedCard = cards.find((c) => c.id === activeId)
+    if (!draggedCard) return
 
     // Determine the target column
-    let targetStatus = activeCard.status
+    let targetStatus = draggedCard.status
     const overColumn = COLUMNS.find((col) => col.id === overId)
     const overCard = cards.find((c) => c.id === overId)
 
@@ -285,11 +393,15 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
         const data = await res.json()
         setCards(data.cards)
       } else {
-        fetchCards() // Refetch on error
+        if (activeBoard) {
+          fetchCards(activeBoard.id)
+        }
       }
     } catch (error) {
       console.error('Error reordering:', error)
-      fetchCards()
+      if (activeBoard) {
+        fetchCards(activeBoard.id)
+      }
     }
   }
 
@@ -309,9 +421,19 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
 
   return (
     <div className="h-full">
+      {/* Board Tabs */}
+      <BoardTabs
+        boards={boards}
+        activeBoard={activeBoard}
+        onSelectBoard={setActiveBoard}
+        onCreateBoard={handleCreateBoard}
+        onRenameBoard={handleRenameBoard}
+        onDeleteBoard={handleDeleteBoard}
+      />
+
       {/* Undo Banner */}
       {deletedCards.length > 0 && (
-        <div className="mb-4 p-3 bg-zinc-800 dark:bg-zinc-700 text-white rounded-lg flex items-center justify-between">
+        <div className="mt-4 p-3 bg-zinc-800 dark:bg-zinc-700 text-white rounded-lg flex items-center justify-between">
           <span>
             {deletedCards.length} card{deletedCards.length > 1 ? 's' : ''} deleted
           </span>
@@ -331,39 +453,41 @@ export default function KanbanBoard({ userId, userName }: KanbanBoardProps) {
       )}
 
       {/* Board */}
-      <DndContext
-        sensors={sensors}
-        collisionDetection={closestCorners}
-        onDragStart={handleDragStart}
-        onDragOver={handleDragOver}
-        onDragEnd={handleDragEnd}
-      >
-        <div className="flex gap-4 overflow-x-auto pb-4">
-          {COLUMNS.map((column) => (
-            <KanbanColumn
-              key={column.id}
-              id={column.id}
-              title={column.title}
-              cards={getCardsForColumn(column.id as Card['status'])}
-              onUpdateCard={updateCard}
-              onDeleteCard={deleteCard}
-              onAddCard={handleAddCard}
-            />
-          ))}
-        </div>
-
-        <DragOverlay>
-          {activeCard && (
-            <div className="rotate-3 opacity-90">
-              <KanbanCard
-                card={activeCard}
-                onUpdate={() => {}}
-                onDelete={() => {}}
+      <div className="mt-4">
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCorners}
+          onDragStart={handleDragStart}
+          onDragOver={handleDragOver}
+          onDragEnd={handleDragEnd}
+        >
+          <div className="flex gap-4 overflow-x-auto pb-4">
+            {COLUMNS.map((column) => (
+              <KanbanColumn
+                key={column.id}
+                id={column.id}
+                title={column.title}
+                cards={getCardsForColumn(column.id as Card['status'])}
+                onUpdateCard={updateCard}
+                onDeleteCard={deleteCard}
+                onAddCard={handleAddCard}
               />
-            </div>
-          )}
-        </DragOverlay>
-      </DndContext>
+            ))}
+          </div>
+
+          <DragOverlay>
+            {activeCard && (
+              <div className="rotate-3 opacity-90">
+                <KanbanCard
+                  card={activeCard}
+                  onUpdate={() => {}}
+                  onDelete={() => {}}
+                />
+              </div>
+            )}
+          </DragOverlay>
+        </DndContext>
+      </div>
 
       {/* Add Card Modal */}
       {showAddModal && (
