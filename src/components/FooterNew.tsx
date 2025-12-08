@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Sparkles, Github, Linkedin, Twitter } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 
 const footerNavigation = {
@@ -25,12 +25,6 @@ const footerNavigation = {
   ],
 }
 
-const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com', icon: Github },
-  { name: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
-  { name: 'Twitter', href: 'https://twitter.com', icon: Twitter },
-]
-
 export function Footer() {
   return (
     <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
@@ -50,20 +44,6 @@ export function Footer() {
               AI Enablement Consulting for enterprises ready to transform.
               We turn AI experiments into business value.
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
-                  aria-label={item.name}
-                >
-                  <item.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Services */}
