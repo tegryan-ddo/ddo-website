@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm install:*)",
+      "Bash(npx prisma init:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(aws cognito-idp list-user-pools:*)",
+      "Bash(aws iam get-user:*)",
+      "Bash(aws configure get:*)",
+      "Bash(aws sesv2 list-email-identities:*)",
+      "Bash(cmd //c \"taskkill /PID 20868 /F\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File:*)",
+      "Bash(aws ec2 describe-vpcs:*)",
+      "Bash(aws ec2 describe-subnets:*)",
+      "Bash(aws ec2 create-default-vpc:*)",
+      "Bash(aws rds describe-db-instances:*)",
+      "Bash(timeout /t 60 /nobreak)",
+      "Bash(powershell -Command \"Start-Sleep -Seconds 60; aws rds describe-db-instances --db-instance-identifier ddo-postgres --region us-east-1 --query ''DBInstances[0].{Status:DBInstanceStatus,Endpoint:Endpoint.Address,Port:Endpoint.Port}'' --output json\")",
+      "Bash(npx prisma migrate dev --name init)",
+      "Bash(curl:*)",
+      "Bash(npx prisma migrate:*)",
+      "Bash(tasklist:*)",
+      "Bash(cmd /c \"cd /d c:\\Users\\barff\\Documents\\digital-devops-nextjs && taskkill /f /im node.exe 2>nul && rmdir /s /q .next 2>nul\")",
+      "Bash(cmd /c \"taskkill /PID 12272 /F\")",
+      "Bash(cmd /c \"taskkill /f /im node.exe 2>nul\")",
+      "Bash(cmd /c \"cd /d c:\\Users\\barff\\Documents\\digital-devops-nextjs && rmdir /s /q .next 2>nul && echo Cleaned\")",
+      "Bash(cmd /c \"taskkill /f /im node.exe 2>nul & timeout /t 2 /nobreak >nul & cd /d c:\\Users\\barff\\Documents\\digital-devops-nextjs && rmdir /s /q .next 2>nul && npm run dev -- -p 3001\")",
+      "Bash(cmd /c \"taskkill /f /im node.exe\")",
+      "Bash(powershell -Command \"Stop-Process -Id 12272,25208,26492,27588 -Force\")",
+      "Bash(timeout /t 10 /nobreak)",
+      "Bash(aws amplify list-apps:*)",
+      "Bash(aws amplify list-branches:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

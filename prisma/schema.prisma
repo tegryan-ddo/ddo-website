@@ -1,0 +1,138 @@
+// Prisma schema for DDO Invite System
+// Users are managed by AWS Cognito
+// https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// Invite System
+// Cognito handles user authentication, but we track invites in our database
+// ============================================================================
+
+enum InviteStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  REVOKED
+}
+
+enum UserRole {
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+model Invite {
+  id          String       @id @default(cuid())
+  email       String
+  token       String       @unique @default(cuid())
+  role        UserRole     @default(MEMBER)
+  status      InviteStatus @default(PENDING)
+  message     String?      // Optional personal message from inviter
+
+  // Who sent the invite (Cognito user sub/ID)
+  invitedById   String
+  invitedByEmail String
+  invitedByName  String?
+
+  // When the invite was accepted (Cognito user sub/ID)
+  acceptedById String?
+
+  expiresAt   DateTime
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([email])
+  @@index([token])
+  @@index([invitedById])
+  @@index([status])
+}
+
+// ============================================================================
+// User Profile (Extended data not stored in Cognito)
+// ============================================================================
+
+model UserProfile {
+  id            String   @id // This is the Cognito user sub
+  email         String   @unique
+  role          UserRole @default(MEMBER)
+
+  // Profile fields
+  displayName   String?
+  avatarUrl     String?
+  bio           String?
+
+  // Timestamps
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  lastLoginAt   DateTime?
+
+  @@index([email])
+}
+
+// ============================================================================
+// Kanban Board System
+// Trello-like card/column system for project planning
+// ============================================================================
+
+enum CardStatus {
+  BACKLOG
+  ON_DECK
+  IN_PROGRESS
+  DONE
+}
+
+enum CardPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum CardType {
+  TASK          // General task
+  RESEARCH      // Research needed
+  DECISION      // Decision required from user
+  CONFIGURATION // External system configuration
+  BUG           // Bug to fix
+  FEATURE       // Feature to implement
+}
+
+model KanbanCard {
+  id          String       @id @default(cuid())
+  title       String
+  content     String?      @db.Text // Rich HTML content
+  status      CardStatus   @default(BACKLOG)
+  priority    CardPriority @default(MEDIUM)
+  type        CardType     @default(TASK)
+  position    Int          @default(0) // Order within column
+
+  // Optional due date
+  dueDate     DateTime?
+
+  // Who created/assigned
+  createdById   String?    // Cognito user ID or 'system' for AI-created
+  createdByName String?
+  assignedToId  String?    // Cognito user ID
+  assignedToName String?
+
+  // Soft delete for undo functionality
+  isDeleted   Boolean      @default(false)
+  deletedAt   DateTime?
+
+  // Timestamps
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([status])
+  @@index([isDeleted])
+  @@index([createdById])
+  @@index([assignedToId])
+}
