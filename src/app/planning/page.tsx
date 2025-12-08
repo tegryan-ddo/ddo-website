@@ -140,7 +140,7 @@ export default function PlanningPage() {
               // Refresh the page to load user data
               window.location.reload()
             }
-            return null
+            return <></>
           }}
         </Authenticator>
       </div>
