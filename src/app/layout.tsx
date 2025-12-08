@@ -1,6 +1,9 @@
 import './globals.css'
+import { Suspense } from 'react'
 import AmplifyProvider from '@/components/AmplifyProvider'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { Analytics } from '@/components/Analytics'
+import { PerformanceMonitor } from '@/components/PerformanceMonitor'
 
 export const metadata = {
   title: 'Digital DevOps',
@@ -33,6 +36,10 @@ export default function RootLayout({
           <AmplifyProvider>
             {children}
           </AmplifyProvider>
+          <Suspense fallback={null}>
+            <Analytics />
+          </Suspense>
+          <PerformanceMonitor />
         </ThemeProvider>
       </body>
     </html>

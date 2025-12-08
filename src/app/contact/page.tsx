@@ -24,6 +24,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { contactFormSchema, type ContactFormData } from '@/lib/validations/contact'
+import { trackConversion, trackFormSubmission } from '@/lib/analytics'
 
 const services = [
   'AI Strategy & Advisory',
@@ -96,8 +97,17 @@ export default function ContactPage() {
         throw new Error(result.error || 'Failed to submit form')
       }
 
+      // Track successful form submission
+      trackConversion('contact_form_submit', {
+        service: data.service,
+        budget: data.budget || 'not_specified',
+        timeline: data.timeline || 'not_specified',
+      })
+      trackFormSubmission('contact', true, { service: data.service })
+
       setIsSubmitted(true)
     } catch (error) {
+      trackFormSubmission('contact', false)
       setSubmitError(
         error instanceof Error ? error.message : 'Something went wrong. Please try again.'
       )

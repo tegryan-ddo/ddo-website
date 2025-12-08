@@ -26,6 +26,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { assessmentFormSchema, type AssessmentFormData } from '@/lib/validations/contact'
+import { trackConversion, trackEvent, trackFormSubmission } from '@/lib/analytics'
 
 const questions = [
   {
@@ -184,6 +185,17 @@ export default function AssessmentPage() {
 
   const handleAnswer = (questionId: string, score: number) => {
     setAnswers((prev) => ({ ...prev, [questionId]: score }))
+
+    // Track question progress
+    trackEvent({
+      name: 'assessment_question_answered',
+      properties: {
+        question_id: questionId,
+        question_number: currentQuestion + 1,
+        total_questions: questions.length,
+      },
+    })
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1)
     } else {
@@ -210,9 +222,20 @@ export default function AssessmentPage() {
         throw new Error('Failed to submit assessment')
       }
 
+      // Track assessment completion
+      trackConversion('assessment_complete', {
+        score: totalScore,
+        readiness_level: readiness.level,
+      })
+      trackFormSubmission('assessment', true, {
+        score: totalScore,
+        readiness_level: readiness.level,
+      })
+
       setStep('results')
     } catch (error) {
       console.error('Assessment submission error:', error)
+      trackFormSubmission('assessment', false)
     } finally {
       setIsSubmitting(false)
     }
@@ -278,7 +301,10 @@ export default function AssessmentPage() {
                     <Button
                       variant="gradient"
                       size="xl"
-                      onClick={() => setStep('questions')}
+                      onClick={() => {
+                        trackConversion('assessment_start')
+                        setStep('questions')
+                      }}
                       className="flex items-center"
                     >
                       Start Assessment
