@@ -353,8 +353,151 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Engagement Models */}
+        {/* Service Comparison Table */}
         <section className="section bg-white dark:bg-zinc-950">
+          <div className="container-wide">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-brand-600 dark:text-brand-400 font-medium mb-4"
+              >
+                Compare Options
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4"
+              >
+                Which Service Is Right for You?
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-lg text-zinc-600 dark:text-zinc-400"
+              >
+                Not sure where to start? Here&apos;s a quick guide to help you choose.
+              </motion.p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="overflow-x-auto"
+            >
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-zinc-200 dark:border-zinc-800">
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-zinc-900 dark:text-white">
+                      If you need...
+                    </th>
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-zinc-900 dark:text-white">
+                      Start with
+                    </th>
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-zinc-900 dark:text-white">
+                      Timeline
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
+                      Clarity on AI opportunities & roadmap
+                    </td>
+                    <td className="py-4 px-6">
+                      <Link href="#ai-strategy" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                        AI Strategy & Advisory
+                      </Link>
+                    </td>
+                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-4 weeks</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
+                      To build production AI systems
+                    </td>
+                    <td className="py-4 px-6">
+                      <Link href="#ai-implementation" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                        AI Implementation
+                      </Link>
+                    </td>
+                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-6 months</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
+                      Modern web applications
+                    </td>
+                    <td className="py-4 px-6">
+                      <Link href="#modern-development" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                        Modern Development
+                      </Link>
+                    </td>
+                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">1-4 months</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
+                      Faster, safer deployments
+                    </td>
+                    <td className="py-4 px-6">
+                      <Link href="#devops" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                        DevOps Excellence
+                      </Link>
+                    </td>
+                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">1-3 months</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
+                      Compliance & security review
+                    </td>
+                    <td className="py-4 px-6">
+                      <Link href="#security" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                        Security & Compliance
+                      </Link>
+                    </td>
+                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-8 weeks</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
+                      Performance & cost optimization
+                    </td>
+                    <td className="py-4 px-6">
+                      <Link href="#scale-optimize" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+                        Scale & Optimize
+                      </Link>
+                    </td>
+                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-6 weeks</td>
+                  </tr>
+                </tbody>
+              </table>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="mt-8 text-center"
+            >
+              <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+                Not sure? We can help you figure out the right approach.
+              </p>
+              <Button variant="outline" asChild>
+                <Link href="/assessment">
+                  Take Our AI Readiness Assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Engagement Models */}
+        <section className="section bg-zinc-50 dark:bg-zinc-900/50">
           <div className="container-wide">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <motion.p
@@ -454,7 +597,7 @@ export default function ServicesPage() {
                 <Button
                   variant="outline"
                   size="xl"
-                  className="border-zinc-700 text-white hover:bg-zinc-800"
+                  className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white"
                   asChild
                 >
                   <Link href="/assessment">

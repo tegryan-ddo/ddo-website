@@ -432,7 +432,7 @@ export default function AboutPage() {
                   <Button
                     variant="outline"
                     size="xl"
-                    className="w-full sm:w-auto border-zinc-700 text-white hover:bg-zinc-800"
+                    className="w-full sm:w-auto border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white"
                     asChild
                   >
                     <Link href="/assessment">

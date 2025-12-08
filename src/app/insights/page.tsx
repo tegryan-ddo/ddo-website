@@ -314,6 +314,31 @@ export default function InsightsPage() {
               >
                 No spam. Unsubscribe anytime.
               </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="mt-8 pt-8 border-t border-zinc-800"
+              >
+                <p className="text-zinc-400 mb-4">
+                  Ready to transform your AI strategy?
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button variant="outline" className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white" asChild>
+                    <Link href="/contact">
+                      Schedule a Consultation
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white" asChild>
+                    <Link href="/assessment">
+                      Take AI Assessment
+                    </Link>
+                  </Button>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>

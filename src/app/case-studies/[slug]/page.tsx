@@ -354,7 +354,7 @@ export default function CaseStudyPage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-zinc-700 text-white hover:bg-zinc-800" asChild>
+            <Button variant="outline" size="lg" className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white" asChild>
               <Link href="/case-studies">View More Case Studies</Link>
             </Button>
           </div>

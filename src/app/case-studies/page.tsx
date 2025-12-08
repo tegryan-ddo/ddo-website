@@ -256,7 +256,7 @@ export default function CaseStudiesPage() {
                 <Button
                   variant="outline"
                   size="xl"
-                  className="border-zinc-700 text-white hover:bg-zinc-800"
+                  className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white"
                   asChild
                 >
                   <Link href="/assessment">
