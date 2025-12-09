@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['digitaldevops.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'digitaldevops.io',
+      },
+    ],
   },
   outputFileTracingRoot: process.cwd(),
 }
