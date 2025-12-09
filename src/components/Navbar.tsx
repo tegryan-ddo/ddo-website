@@ -4,7 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Sparkles } from 'lucide-react'
+import { Menu, X, ChevronDown, Layers } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { cn } from '@/lib/utils'
@@ -41,8 +41,8 @@ export function Navbar() {
       <nav className="container-wide flex items-center justify-between py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-accent-600">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
+            <Layers className="w-5 h-5 text-white" />
           </div>
           <span className="text-xl font-semibold text-zinc-900 dark:text-white">
             Digital DevOps

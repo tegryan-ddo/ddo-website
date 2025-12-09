@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Sparkles } from 'lucide-react'
+import { Layers } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 
 const footerNavigation = {
@@ -33,8 +33,8 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-accent-600">
-                <Sparkles className="w-5 h-5 text-white" />
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
+                <Layers className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-zinc-900 dark:text-white">
                 Digital DevOps

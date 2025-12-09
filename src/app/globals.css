@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for next-themes compatibility */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* DDO Design System - Custom Theme Variables */
 @theme {
   /* Brand Colors */
