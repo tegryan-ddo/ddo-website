@@ -7,6 +7,7 @@ import {
   Cloud,
   Shield,
   Settings,
+  GitBranch,
   ArrowRight,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -16,6 +17,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Cloud,
   Shield,
   Settings,
+  GitBranch,
 }
 
 const container = {
@@ -54,7 +56,7 @@ export function ServicesGrid() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl font-bold text-white mb-4"
           >
-            Bespoke AWS for Growing Companies
+            From Repo to Enterprise Production
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -63,8 +65,8 @@ export function ServicesGrid() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400"
           >
-            Custom infrastructure for AI/tech startups that have outgrown basic hosting.
-            Senior engineers, real solutions, no cookie-cutter packages.
+            Whether you need managed hosting for $299/mo or a complete infrastructure overhaul,
+            we&apos;ve got you covered. Zero DevOps required.
           </motion.p>
         </div>
 
@@ -74,7 +76,7 @@ export function ServicesGrid() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {serviceHighlights.map((service) => {
             const IconComponent = iconMap[service.icon] || Cloud
