@@ -9,6 +9,7 @@ import {
   Cpu,
   TrendingUp,
   Building2,
+  GitBranch,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -73,7 +74,7 @@ export function PricingPageContent() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="grid md:grid-cols-3 gap-6 mb-20"
+        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20"
       >
         {serviceTiers.map((tier) => (
           <motion.div
@@ -148,10 +149,10 @@ export function PricingPageContent() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {idealCustomers.map((customer, index) => {
-            const icons = [Cpu, TrendingUp, Building2]
-            const Icon = icons[index]
+            const icons = [GitBranch, Cpu, TrendingUp, Building2]
+            const Icon = icons[index] || Cpu
             return (
               <div
                 key={customer.id}
