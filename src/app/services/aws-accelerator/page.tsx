@@ -192,7 +192,7 @@ export default function AWSAcceleratorPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-slate-700 text-slate-300 hover:bg-slate-800"
+                  className="border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
                   asChild
                 >
                   <Link href="/contact?service=well-architected-review">
@@ -512,7 +512,7 @@ export default function AWSAcceleratorPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-slate-700 text-slate-300 hover:bg-slate-800"
+                  className="border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
                   asChild
                 >
                   <Link href="/contact?service=well-architected-review">

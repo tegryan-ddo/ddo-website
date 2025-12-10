@@ -80,7 +80,7 @@ function PackageCard({ pkg, index }: { pkg: ServicePackage; index: number }) {
           className={
             pkg.highlighted
               ? 'w-full bg-gradient-to-r from-blue-500 to-cyan-500'
-              : 'w-full border-slate-700 text-slate-300 hover:bg-slate-800'
+              : 'w-full border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300'
           }
           asChild
         >
@@ -379,7 +379,7 @@ export function PricingPageContent() {
           <Button
             variant="outline"
             size="lg"
-            className="border-slate-700 text-slate-300 hover:bg-slate-800"
+            className="border-slate-600 text-white hover:bg-slate-700"
             asChild
           >
             <Link href="/contact?package=well-architected-review">

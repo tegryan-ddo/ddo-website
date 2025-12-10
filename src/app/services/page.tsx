@@ -397,7 +397,7 @@ export default function ServicesPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-slate-700 text-slate-300 hover:bg-slate-800"
+                  className="border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
                   asChild
                 >
                   <Link href="/contact?service=well-architected-review">
@@ -566,7 +566,7 @@ export default function ServicesPage() {
                   <p className="text-slate-400 mb-6">{offering.description}</p>
                   <Button
                     variant="outline"
-                    className="w-full border-slate-700 text-slate-300 hover:bg-slate-800"
+                    className="w-full border-cyan-500/50 bg-cyan-500/10 text-white hover:bg-cyan-500/20 hover:border-cyan-400"
                     asChild
                   >
                     <Link href={offering.href}>
@@ -699,7 +699,7 @@ export default function ServicesPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-slate-700 text-slate-300 hover:bg-slate-800"
+                  className="border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
                   asChild
                 >
                   <Link href="/pricing">
