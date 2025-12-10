@@ -530,10 +530,10 @@ export default function AboutPage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col justify-center"
               >
-                <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <Button
                     size="lg"
-                    className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white"
+                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white"
                     asChild
                   >
                     <Link href="/contact">
@@ -546,7 +546,7 @@ export default function AboutPage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full sm:w-auto border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
+                    className="border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
                     asChild
                   >
                     <Link href="/pricing">

@@ -6,11 +6,11 @@ import { Separator } from '@/components/ui/separator'
 
 const footerNavigation = {
   services: [
-    { name: 'AWS Infrastructure', href: '/services#aws-infrastructure' },
-    { name: 'Security & Compliance', href: '/services#security' },
-    { name: 'DevOps Support', href: '/services#support' },
-    { name: 'Managed Infrastructure', href: '/services#managed' },
-    { name: 'Next.js Development', href: '/services#development' },
+    { name: 'AWS Infrastructure', href: '/services/aws-accelerator' },
+    { name: 'Security & Compliance', href: '/services/security' },
+    { name: 'DevOps Support', href: '/services/enterprise-devops' },
+    { name: 'Managed Infrastructure', href: '/services/repo-to-production' },
+    { name: 'Next.js Development', href: '/services/development' },
   ],
   company: [
     { name: 'About', href: '/about' },

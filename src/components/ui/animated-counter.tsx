@@ -79,6 +79,17 @@ export function parseStatValue(value: string): {
         decimals: num % 1 === 0 ? 0 : 1,
       }
     }
+    
+    // Handle standard currency like "$299"
+    const num = parseFloat(numPart)
+    if (!isNaN(num)) {
+      return {
+        end: num,
+        prefix: '$',
+        suffix: '',
+        decimals: num % 1 === 0 ? 0 : 2,
+      }
+    }
   }
 
   // Handle percentage like "78%"
