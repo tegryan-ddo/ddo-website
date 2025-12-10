@@ -63,8 +63,8 @@ export default function InsightsPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-16 overflow-hidden bg-white dark:bg-zinc-950">
-          <div className="absolute inset-0 bg-grid opacity-50 dark:opacity-30" />
+        <section className="relative pt-32 pb-16 overflow-hidden bg-slate-950">
+          <div className="absolute inset-0 bg-grid opacity-30" />
           <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl" />
 
           <div className="container-wide relative z-10">
@@ -84,7 +84,7 @@ export default function InsightsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6"
               >
                 Thought Leadership &{' '}
                 <span className="text-gradient">Deep Dives</span>
@@ -94,7 +94,7 @@ export default function InsightsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-lg text-zinc-600 dark:text-zinc-400 mb-8"
+                className="text-lg text-slate-400 mb-8"
               >
                 Expert insights on AI strategy, implementation, and best practices from
                 the Digital DevOps team.
@@ -121,7 +121,7 @@ export default function InsightsPage() {
         </section>
 
         {/* Filters */}
-        <section className="py-6 bg-zinc-50 dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800">
+        <section className="py-6 bg-slate-900/50 border-y border-slate-800">
           <div className="container-wide">
             <div className="flex flex-wrap justify-center gap-2">
               {categories.map((category) => (
@@ -131,7 +131,7 @@ export default function InsightsPage() {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     filter === category
                       ? 'bg-brand-600 text-white'
-                      : 'bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-700'
+                      : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                   }`}
                 >
                   {category}
@@ -143,9 +143,9 @@ export default function InsightsPage() {
 
         {/* Featured Articles */}
         {featuredArticles.length > 0 && (
-          <section className="section bg-white dark:bg-zinc-950">
+          <section className="section bg-slate-950">
             <div className="container-wide">
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-8">
+              <h2 className="text-2xl font-bold text-white mb-8">
                 Featured
               </h2>
               <motion.div
@@ -158,20 +158,20 @@ export default function InsightsPage() {
                   <motion.article
                     key={article.id}
                     variants={item}
-                    className="group relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-brand-500/5 to-accent-500/5"
+                    className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-brand-500/5 to-accent-500/5"
                   >
                     <div className="p-8">
                       <Badge variant="secondary" className="mb-4">
                         {article.category}
                       </Badge>
-                      <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-3 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition-colors">
                         <Link href={`/insights/${article.id}`}>{article.title}</Link>
                       </h3>
-                      <p className="text-zinc-600 dark:text-zinc-400 mb-6">
+                      <p className="text-slate-400 mb-6">
                         {article.excerpt}
                       </p>
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
+                        <div className="flex items-center gap-4 text-sm text-slate-400">
                           <span className="flex items-center gap-1">
                             <Calendar className="w-4 h-4" />
                             {article.date}
@@ -183,7 +183,7 @@ export default function InsightsPage() {
                         </div>
                         <Link
                           href={`/insights/${article.id}`}
-                          className="flex items-center gap-1 text-sm font-medium text-brand-600 dark:text-brand-400 hover:gap-2 transition-all"
+                          className="flex items-center gap-1 text-sm font-medium text-brand-400 hover:gap-2 transition-all"
                         >
                           Read more
                           <ArrowRight className="w-4 h-4" />
@@ -198,15 +198,15 @@ export default function InsightsPage() {
         )}
 
         {/* All Articles */}
-        <section className="section bg-zinc-50 dark:bg-zinc-900/50">
+        <section className="section bg-slate-900/50">
           <div className="container-wide">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-8">
+            <h2 className="text-2xl font-bold text-white mb-8">
               All Articles
             </h2>
             {regularArticles.length === 0 && featuredArticles.length === 0 ? (
               <div className="text-center py-12">
                 <BookOpen className="w-12 h-12 text-zinc-400 mx-auto mb-4" />
-                <p className="text-zinc-600 dark:text-zinc-400">
+                <p className="text-slate-400">
                   No articles found matching your criteria.
                 </p>
               </div>
@@ -221,35 +221,35 @@ export default function InsightsPage() {
                   <motion.article
                     key={article.id}
                     variants={item}
-                    className="group bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:shadow-lg transition-shadow"
+                    className="group bg-slate-900 rounded-xl border border-slate-800 overflow-hidden hover:shadow-lg transition-shadow"
                   >
                     <div className="p-6">
                       <Badge variant="secondary" className="mb-3 text-xs">
                         {article.category}
                       </Badge>
-                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2">
+                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-brand-400 transition-colors line-clamp-2">
                         <Link href={`/insights/${article.id}`}>{article.title}</Link>
                       </h3>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4 line-clamp-3">
+                      <p className="text-sm text-slate-400 mb-4 line-clamp-3">
                         {article.excerpt}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {article.tags.slice(0, 3).map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-1 text-xs rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
+                            className="px-2 py-1 text-xs rounded bg-slate-800 text-slate-400"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                      <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <span className="text-xs text-slate-400">
                           {article.date} • {article.readTime}
                         </span>
                         <Link
                           href={`/insights/${article.id}`}
-                          className="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300"
+                          className="text-brand-400 hover:text-brand-300"
                         >
                           <ArrowUpRight className="w-4 h-4" />
                         </Link>

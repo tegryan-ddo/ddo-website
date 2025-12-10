@@ -86,7 +86,7 @@ export default function CalculatorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+    <div className="min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-600/10 via-transparent to-accent-600/10" />
@@ -96,10 +96,10 @@ export default function CalculatorPage() {
               <Calculator className="w-3 h-3 mr-1" />
               ROI Calculator
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Calculate Your AI & DevOps ROI
             </h1>
-            <p className="text-xl text-zinc-600 dark:text-zinc-400">
+            <p className="text-xl text-slate-400">
               See the potential return on investment from implementing AI-powered
               automation and modern DevOps practices in your organization.
             </p>
@@ -116,15 +116,15 @@ export default function CalculatorPage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white dark:bg-zinc-900 rounded-2xl p-8 shadow-lg border border-zinc-200 dark:border-zinc-800"
+              className="bg-slate-900 rounded-2xl p-8 shadow-lg border border-slate-800"
             >
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Your Organization
               </h2>
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     <Users className="w-4 h-4 inline mr-2" />
                     Number of Employees in Tech/Ops
                   </label>
@@ -137,7 +137,7 @@ export default function CalculatorPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     <DollarSign className="w-4 h-4 inline mr-2" />
                     Average Annual Salary (USD)
                   </label>
@@ -150,7 +150,7 @@ export default function CalculatorPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     <Clock className="w-4 h-4 inline mr-2" />
                     Hours Spent on Manual Tasks (per person/week)
                   </label>
@@ -163,7 +163,7 @@ export default function CalculatorPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     <TrendingUp className="w-4 h-4 inline mr-2" />
                     Current Error/Rework Rate (%)
                   </label>
@@ -176,7 +176,7 @@ export default function CalculatorPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     <Zap className="w-4 h-4 inline mr-2" />
                     Deployments per Month
                   </label>
@@ -189,7 +189,7 @@ export default function CalculatorPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
                     <Clock className="w-4 h-4 inline mr-2" />
                     Hours Spent on Incidents (per week)
                   </label>
@@ -231,36 +231,36 @@ export default function CalculatorPage() {
               </div>
 
               {/* Breakdown */}
-              <div className="bg-white dark:bg-zinc-900 rounded-2xl p-8 shadow-lg border border-zinc-200 dark:border-zinc-800">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+              <div className="bg-slate-900 rounded-2xl p-8 shadow-lg border border-slate-800">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   Savings Breakdown
                 </h3>
 
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center py-3 border-b border-zinc-100 dark:border-zinc-800">
+                  <div className="flex justify-between items-center py-3 border-b border-slate-800">
                     <div>
-                      <div className="font-medium text-zinc-900 dark:text-white">Automation Savings</div>
-                      <div className="text-sm text-zinc-500">{formatNumber(results.automationSavingsHours)} hours saved</div>
+                      <div className="font-medium text-white">Automation Savings</div>
+                      <div className="text-sm text-slate-400">{formatNumber(results.automationSavingsHours)} hours saved</div>
                     </div>
                     <div className="text-lg font-semibold text-green-600">
                       {formatCurrency(results.automationSavingsDollars)}
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center py-3 border-b border-zinc-100 dark:border-zinc-800">
+                  <div className="flex justify-between items-center py-3 border-b border-slate-800">
                     <div>
-                      <div className="font-medium text-zinc-900 dark:text-white">Error Reduction</div>
-                      <div className="text-sm text-zinc-500">80% fewer errors</div>
+                      <div className="font-medium text-white">Error Reduction</div>
+                      <div className="text-sm text-slate-400">80% fewer errors</div>
                     </div>
                     <div className="text-lg font-semibold text-green-600">
                       {formatCurrency(results.errorReductionSavings)}
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center py-3 border-b border-zinc-100 dark:border-zinc-800">
+                  <div className="flex justify-between items-center py-3 border-b border-slate-800">
                     <div>
-                      <div className="font-medium text-zinc-900 dark:text-white">Faster Deployments</div>
-                      <div className="text-sm text-zinc-500">60% faster releases</div>
+                      <div className="font-medium text-white">Faster Deployments</div>
+                      <div className="text-sm text-slate-400">60% faster releases</div>
                     </div>
                     <div className="text-lg font-semibold text-green-600">
                       {formatCurrency(results.deploymentTimeSavings)}
@@ -269,8 +269,8 @@ export default function CalculatorPage() {
 
                   <div className="flex justify-between items-center py-3">
                     <div>
-                      <div className="font-medium text-zinc-900 dark:text-white">Incident Response</div>
-                      <div className="text-sm text-zinc-500">50% faster resolution</div>
+                      <div className="font-medium text-white">Incident Response</div>
+                      <div className="text-sm text-slate-400">50% faster resolution</div>
                     </div>
                     <div className="text-lg font-semibold text-green-600">
                       {formatCurrency(results.incidentSavings)}
@@ -280,17 +280,17 @@ export default function CalculatorPage() {
               </div>
 
               {/* 3-Year Value */}
-              <div className="bg-zinc-100 dark:bg-zinc-800 rounded-2xl p-6">
+              <div className="bg-slate-800 rounded-2xl p-6">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-sm text-zinc-600 dark:text-zinc-400">3-Year Net Value</div>
-                    <div className="text-2xl font-bold text-zinc-900 dark:text-white">
+                    <div className="text-sm text-slate-400">3-Year Net Value</div>
+                    <div className="text-2xl font-bold text-white">
                       {formatCurrency(results.threeYearValue)}
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-zinc-600 dark:text-zinc-400">Est. Investment</div>
-                    <div className="text-lg font-semibold text-zinc-700 dark:text-zinc-300">
+                    <div className="text-sm text-slate-400">Est. Investment</div>
+                    <div className="text-lg font-semibold text-slate-300">
                       {formatCurrency(results.estimatedInvestment)}
                     </div>
                   </div>
@@ -298,11 +298,11 @@ export default function CalculatorPage() {
               </div>
 
               {/* CTA */}
-              <div className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
-                <h3 className="font-semibold text-zinc-900 dark:text-white mb-2">
+              <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+                <h3 className="font-semibold text-white mb-2">
                   Ready to realize these savings?
                 </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
+                <p className="text-sm text-slate-400 mb-4">
                   Let&apos;s discuss how we can help you achieve these results with a customized AI & DevOps strategy.
                 </p>
                 <div className="flex gap-3">
@@ -325,33 +325,33 @@ export default function CalculatorPage() {
       </section>
 
       {/* Methodology Note */}
-      <section className="py-16 bg-white dark:bg-zinc-900">
+      <section className="py-16 bg-slate-950">
         <div className="container-wide">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">
               How We Calculate ROI
             </h2>
-            <p className="text-zinc-600 dark:text-zinc-400 mb-8">
+            <p className="text-slate-400 mb-8">
               Our calculations are based on industry benchmarks and real-world results from
               AI and DevOps transformations. Actual results may vary based on your specific
               situation, technology stack, and implementation approach.
             </p>
             <div className="grid md:grid-cols-3 gap-6 text-left">
-              <div className="p-6 bg-zinc-50 dark:bg-zinc-800 rounded-xl">
+              <div className="p-6 bg-slate-900 rounded-xl">
                 <div className="text-2xl font-bold text-brand-600 mb-2">70%</div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                <div className="text-sm text-slate-400">
                   Average reduction in manual tasks through AI-powered automation
                 </div>
               </div>
-              <div className="p-6 bg-zinc-50 dark:bg-zinc-800 rounded-xl">
+              <div className="p-6 bg-slate-900 rounded-xl">
                 <div className="text-2xl font-bold text-brand-600 mb-2">80%</div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                <div className="text-sm text-slate-400">
                   Typical reduction in errors with proper DevOps practices
                 </div>
               </div>
-              <div className="p-6 bg-zinc-50 dark:bg-zinc-800 rounded-xl">
+              <div className="p-6 bg-slate-900 rounded-xl">
                 <div className="text-2xl font-bold text-brand-600 mb-2">60%</div>
-                <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                <div className="text-sm text-slate-400">
                   Average improvement in deployment speed with CI/CD
                 </div>
               </div>

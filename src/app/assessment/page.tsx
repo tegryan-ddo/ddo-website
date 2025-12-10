@@ -244,7 +244,7 @@ export default function AssessmentPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-white dark:bg-zinc-950">
+      <main className="min-h-screen bg-slate-950">
         <AnimatePresence mode="wait">
           {/* Intro Screen */}
           {step === 'intro' && (
@@ -276,7 +276,7 @@ export default function AssessmentPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6"
+                    className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6"
                   >
                     AI Readiness{' '}
                     <span className="text-gradient">Assessment</span>
@@ -286,7 +286,7 @@ export default function AssessmentPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-8"
+                    className="text-lg sm:text-xl text-slate-400 mb-8"
                   >
                     Discover where your organization stands on its AI journey. Get
                     personalized recommendations in just 2 minutes.
@@ -310,7 +310,7 @@ export default function AssessmentPage() {
                       Start Assessment
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                    <p className="text-sm text-slate-400">
                       6 questions | Takes about 2 minutes | Free personalized report
                     </p>
                   </motion.div>
@@ -329,10 +329,10 @@ export default function AssessmentPage() {
                     ].map((item) => (
                       <div
                         key={item.label}
-                        className="flex flex-col items-center gap-2 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900"
+                        className="flex flex-col items-center gap-2 p-4 rounded-xl bg-slate-900"
                       >
                         <item.icon className="w-6 h-6 text-brand-500" />
-                        <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                        <span className="text-sm font-medium text-slate-300">
                           {item.label}
                         </span>
                       </div>
@@ -355,11 +355,11 @@ export default function AssessmentPage() {
               <div className="container-wide max-w-2xl mx-auto">
                 {/* Progress */}
                 <div className="mb-8">
-                  <div className="flex justify-between text-sm text-zinc-500 dark:text-zinc-400 mb-2">
+                  <div className="flex justify-between text-sm text-slate-400 mb-2">
                     <span>Question {currentQuestion + 1} of {questions.length}</span>
                     <span>{Math.round(((currentQuestion + 1) / questions.length) * 100)}%</span>
                   </div>
-                  <div className="h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+                  <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                     <motion.div
                       className="h-full bg-gradient-to-r from-brand-500 to-accent-500"
                       initial={{ width: 0 }}
@@ -386,7 +386,7 @@ export default function AssessmentPage() {
                     </Badge>
 
                     {/* Question */}
-                    <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
                       {questions[currentQuestion].question}
                     </h2>
 
@@ -396,13 +396,13 @@ export default function AssessmentPage() {
                         <button
                           key={option.value}
                           onClick={() => handleAnswer(questions[currentQuestion].id, option.score)}
-                          className="w-full p-4 text-left rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-brand-500 hover:bg-brand-50 dark:hover:bg-brand-950/20 transition-all group"
+                          className="w-full p-4 text-left rounded-xl border border-slate-800 bg-slate-900 hover:border-brand-500 hover:bg-brand-950/20 transition-all group"
                         >
                           <div className="flex items-center justify-between">
-                            <span className="text-zinc-700 dark:text-zinc-300">
+                            <span className="text-slate-300">
                               {option.label}
                             </span>
-                            <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-brand-500 transition-colors" />
+                            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors" />
                           </div>
                         </button>
                       ))}
@@ -414,7 +414,7 @@ export default function AssessmentPage() {
                 {currentQuestion > 0 && (
                   <button
                     onClick={() => setCurrentQuestion((prev) => prev - 1)}
-                    className="mt-8 flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+                    className="mt-8 flex items-center gap-2 text-sm text-slate-400 hover:text-slate-300 transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     Previous question
@@ -438,10 +438,10 @@ export default function AssessmentPage() {
                   <div className="w-16 h-16 rounded-full bg-brand-500/10 flex items-center justify-center mx-auto mb-4">
                     <Mail className="w-8 h-8 text-brand-500" />
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                     Almost There!
                   </h2>
-                  <p className="text-zinc-600 dark:text-zinc-400">
+                  <p className="text-slate-400">
                     Enter your details to receive your personalized AI readiness report.
                   </p>
                 </div>
@@ -507,7 +507,7 @@ export default function AssessmentPage() {
                     )}
                   </Button>
 
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 text-center">
+                  <p className="text-xs text-slate-400 text-center">
                     We&apos;ll also send a PDF copy to your email. No spam, ever.
                   </p>
                 </form>
@@ -531,38 +531,38 @@ export default function AssessmentPage() {
                     <CheckCircle2 className="w-3.5 h-3.5 mr-2" />
                     Assessment Complete
                   </Badge>
-                  <h1 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
+                  <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                     Your AI Readiness Score
                   </h1>
                   <div className="flex justify-center items-end gap-2 mb-4">
                     <span className="text-6xl sm:text-7xl font-bold text-gradient">
                       {totalScore}
                     </span>
-                    <span className="text-2xl text-zinc-400 mb-2">/30</span>
+                    <span className="text-2xl text-slate-400 mb-2">/30</span>
                   </div>
                   <div className={`text-xl font-semibold ${readiness.color} mb-2`}>
                     {readiness.level}
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
+                  <p className="text-slate-400">
                     {readiness.description}
                   </p>
                 </div>
 
                 {/* Breakdown */}
-                <div className="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 mb-8">
-                  <h2 className="text-lg font-semibold text-zinc-900 dark:text-white mb-6">
+                <div className="bg-slate-900 rounded-2xl p-6 mb-8">
+                  <h2 className="text-lg font-semibold text-white mb-6">
                     Score Breakdown
                   </h2>
                   <div className="space-y-4">
                     {questions.map((q) => (
                       <div key={q.id}>
                         <div className="flex justify-between text-sm mb-1">
-                          <span className="text-zinc-600 dark:text-zinc-400">{q.category}</span>
-                          <span className="font-medium text-zinc-900 dark:text-white">
+                          <span className="text-slate-400">{q.category}</span>
+                          <span className="font-medium text-white">
                             {answers[q.id] || 0}/5
                           </span>
                         </div>
-                        <div className="h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+                        <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-gradient-to-r from-brand-500 to-accent-500"
                             style={{ width: `${((answers[q.id] || 0) / 5) * 100}%` }}
@@ -576,28 +576,28 @@ export default function AssessmentPage() {
                 {/* Recommendations */}
                 {recommendations.length > 0 && (
                   <div className="mb-12">
-                    <h2 className="text-lg font-semibold text-zinc-900 dark:text-white mb-6">
+                    <h2 className="text-lg font-semibold text-white mb-6">
                       Key Recommendations
                     </h2>
                     <div className="space-y-4">
                       {recommendations.map((rec, index) => (
                         <div
                           key={rec.title}
-                          className="flex gap-4 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900"
+                          className="flex gap-4 p-4 rounded-xl border border-slate-800 bg-slate-900"
                         >
                           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-500/10 flex items-center justify-center">
                             <span className="text-sm font-bold text-brand-500">{index + 1}</span>
                           </div>
                           <div>
                             <div className="flex items-center gap-2 mb-1">
-                              <h3 className="font-medium text-zinc-900 dark:text-white">
+                              <h3 className="font-medium text-white">
                                 {rec.title}
                               </h3>
                               <Badge variant={rec.priority === 'High' ? 'destructive' : 'secondary'}>
                                 {rec.priority}
                               </Badge>
                             </div>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                            <p className="text-sm text-slate-400">
                               {rec.description}
                             </p>
                           </div>
@@ -609,10 +609,10 @@ export default function AssessmentPage() {
 
                 {/* CTA */}
                 <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-brand-500/10 to-accent-500/10 border border-brand-500/20">
-                  <h2 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">
+                  <h2 className="text-xl font-semibold text-white mb-2">
                     Ready to Accelerate Your AI Journey?
                   </h2>
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-6">
+                  <p className="text-slate-400 mb-6">
                     Let&apos;s discuss your results and create a roadmap to improve your AI readiness.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -25,7 +25,7 @@ const openPositions: Position[] = [
 
 export default function CareersPage() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+    <div className="min-h-screen bg-slate-950 text-slate-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-600/10 via-transparent to-accent-600/10" />
@@ -35,10 +35,10 @@ export default function CareersPage() {
               <Briefcase className="w-3 h-3 mr-1" />
               Careers
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Join Our Team
             </h1>
-            <p className="text-xl text-zinc-600 dark:text-zinc-400">
+            <p className="text-xl text-slate-400">
               Help enterprises transform with AI. We&apos;re building a team of exceptional
               consultants who are passionate about turning AI experiments into business value.
             </p>
@@ -47,9 +47,9 @@ export default function CareersPage() {
       </section>
 
       {/* Why Join Us */}
-      <section className="py-16 bg-white dark:bg-zinc-900">
+      <section className="py-16 bg-slate-900">
         <div className="container-wide">
-          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white text-center mb-12">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
             Why Digital DevOps?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -57,15 +57,15 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-6 bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+              className="p-6 bg-slate-800 rounded-xl"
             >
-              <div className="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-brand-900/30 flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-brand-600" />
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 Cutting-Edge Work
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
+              <p className="text-slate-400">
                 Work with the latest AI technologies including Claude, GPT-4, and custom ML solutions
                 for enterprise clients.
               </p>
@@ -76,15 +76,15 @@ export default function CareersPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-6 bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+              className="p-6 bg-slate-800 rounded-xl"
             >
-              <div className="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-brand-900/30 flex items-center justify-center mb-4">
                 <MapPin className="w-6 h-6 text-brand-600" />
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 Remote-First
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
+              <p className="text-slate-400">
                 Work from anywhere. We&apos;re based in beautiful British Columbia but our team
                 spans across North America.
               </p>
@@ -95,15 +95,15 @@ export default function CareersPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="p-6 bg-zinc-50 dark:bg-zinc-800 rounded-xl"
+              className="p-6 bg-slate-800 rounded-xl"
             >
-              <div className="w-12 h-12 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-brand-900/30 flex items-center justify-center mb-4">
                 <Clock className="w-6 h-6 text-brand-600" />
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 Work-Life Balance
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400">
+              <p className="text-slate-400">
                 Flexible hours, unlimited PTO, and a culture that values results over hours logged.
               </p>
             </motion.div>
@@ -114,7 +114,7 @@ export default function CareersPage() {
       {/* Open Positions */}
       <section className="py-16">
         <div className="container-wide">
-          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white text-center mb-12">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
             Open Positions
           </h2>
 
@@ -126,14 +126,14 @@ export default function CareersPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="p-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-brand-500 transition-colors"
+                  className="p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-brand-500 transition-colors"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <h3 className="text-xl font-semibold text-zinc-900 dark:text-white">
+                      <h3 className="text-xl font-semibold text-white">
                         {position.title}
                       </h3>
-                      <div className="flex items-center gap-4 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                      <div className="flex items-center gap-4 mt-2 text-sm text-slate-400">
                         <span className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
                           {position.type}
@@ -143,7 +143,7 @@ export default function CareersPage() {
                           {position.location}
                         </span>
                       </div>
-                      <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+                      <p className="mt-2 text-slate-400">
                         {position.description}
                       </p>
                     </div>
@@ -156,12 +156,12 @@ export default function CareersPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 max-w-2xl mx-auto">
-              <Briefcase className="w-12 h-12 text-zinc-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-2">
+            <div className="text-center py-12 bg-slate-900 rounded-2xl border border-slate-800 max-w-2xl mx-auto">
+              <Briefcase className="w-12 h-12 text-slate-400 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-white mb-2">
                 No Open Positions
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400 mb-6">
+              <p className="text-slate-400 mb-6">
                 We don&apos;t have any open positions right now, but we&apos;re always interested
                 in hearing from talented people.
               </p>

@@ -17,12 +17,12 @@ export default function ArticlePage() {
 
   if (!article) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-950">
+      <div className="min-h-screen flex items-center justify-center bg-slate-950">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-zinc-900 dark:text-white mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4">
             Article Not Found
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-8">
+          <p className="text-slate-400 mb-8">
             The article you're looking for doesn't exist.
           </p>
           <Button asChild>
@@ -37,11 +37,11 @@ export default function ArticlePage() {
   }
 
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-950">
+    <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid opacity-50 dark:opacity-30" />
+        <div className="absolute inset-0 bg-grid opacity-30" />
         <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl" />
 
         <div className="container-wide relative z-10">
@@ -53,7 +53,7 @@ export default function ArticlePage() {
             {/* Back Link */}
             <Link
               href="/insights"
-              className="inline-flex items-center text-sm text-zinc-500 dark:text-zinc-400 hover:text-brand-500 transition-colors mb-8"
+              className="inline-flex items-center text-sm text-slate-400 hover:text-brand-500 transition-colors mb-8"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Insights
@@ -65,12 +65,12 @@ export default function ArticlePage() {
             </Badge>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6 max-w-4xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 max-w-4xl">
               {article.title}
             </h1>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400 mb-8">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400 mb-8">
               <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
                 <span>{article.author.name}</span>
@@ -109,25 +109,25 @@ export default function ArticlePage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="lg:col-span-8"
             >
-              <div className="prose prose-zinc dark:prose-invert prose-lg max-w-none">
+              <div className="prose prose-invert prose-slate prose-lg max-w-none">
                 {/* Render markdown content */}
                 <ArticleContent content={article.content} />
               </div>
 
               {/* Author Box */}
-              <div className="mt-12 p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
+              <div className="mt-12 p-6 bg-slate-900 rounded-2xl">
                 <div className="flex items-start gap-4">
                   <div className="w-16 h-16 bg-brand-500/10 rounded-full flex items-center justify-center">
                     <User className="h-8 w-8 text-brand-500" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-zinc-900 dark:text-white">
+                    <h3 className="font-semibold text-white">
                       {article.author.name}
                     </h3>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
+                    <p className="text-sm text-slate-400 mb-2">
                       {article.author.role}
                     </p>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                    <p className="text-sm text-slate-300">
                       Helping enterprises turn AI experiments into production value through deep technical expertise in AI, React, and DevOps.
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export default function ArticlePage() {
 
               {/* Share Section */}
               <div className="mt-8 flex items-center gap-4">
-                <span className="text-sm text-zinc-500 dark:text-zinc-400">Share this article:</span>
+                <span className="text-sm text-slate-400">Share this article:</span>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" asChild>
                     <a
@@ -182,7 +182,7 @@ export default function ArticlePage() {
                 {/* Related Articles */}
                 {relatedArticles.length > 0 && (
                   <div>
-                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+                    <h3 className="text-lg font-semibold text-white mb-4">
                       Related Articles
                     </h3>
                     <div className="space-y-4">
@@ -190,15 +190,15 @@ export default function ArticlePage() {
                         <Link
                           key={related.id}
                           href={`/insights/${related.id}`}
-                          className="block p-4 bg-zinc-50 dark:bg-zinc-900 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                          className="block p-4 bg-slate-900 rounded-xl hover:bg-slate-800 transition-colors"
                         >
                           <Badge variant="outline" className="text-xs mb-2">
                             {related.category}
                           </Badge>
-                          <h4 className="font-medium text-zinc-900 dark:text-white text-sm leading-snug">
+                          <h4 className="font-medium text-white text-sm leading-snug">
                             {related.title}
                           </h4>
-                          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
+                          <p className="text-xs text-slate-400 mt-2">
                             {related.readTime}
                           </p>
                         </Link>
@@ -213,12 +213,12 @@ export default function ArticlePage() {
       </section>
 
       {/* More Articles CTA */}
-      <section className="py-16 bg-zinc-50 dark:bg-zinc-900">
+      <section className="py-16 bg-slate-900">
         <div className="container-wide text-center">
-          <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             Explore More Insights
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
             Stay ahead of the AI curve with our latest research, case studies, and practical guides.
           </p>
           <Button asChild>
@@ -282,21 +282,21 @@ function ArticleContent({ content }: { content: string }) {
       const [header, ...body] = tableRows
       elements.push(
         <div key={elements.length} className="my-6 overflow-x-auto">
-          <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-700">
+          <table className="min-w-full divide-y divide-slate-700">
             <thead>
               <tr>
                 {header.map((cell, i) => (
-                  <th key={i} className="px-4 py-2 text-left text-sm font-semibold text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800">
+                  <th key={i} className="px-4 py-2 text-left text-sm font-semibold text-white bg-slate-800">
                     {cell.trim()}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-700">
+            <tbody className="divide-y divide-slate-700">
               {body.filter(row => !row[0].startsWith('---')).map((row, i) => (
                 <tr key={i}>
                   {row.map((cell, j) => (
-                    <td key={j} className="px-4 py-2 text-sm text-zinc-600 dark:text-zinc-300">
+                    <td key={j} className="px-4 py-2 text-sm text-slate-300">
                       {cell.trim()}
                     </td>
                   ))}
@@ -315,7 +315,7 @@ function ArticleContent({ content }: { content: string }) {
     return text
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      .replace(/`(.+?)`/g, '<code class="bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded text-sm">$1</code>')
+      .replace(/`(.+?)`/g, '<code class="bg-slate-800 px-1 py-0.5 rounded text-sm">$1</code>')
   }
 
   for (let i = 0; i < lines.length; i++) {
@@ -326,7 +326,7 @@ function ArticleContent({ content }: { content: string }) {
       if (inCodeBlock) {
         elements.push(
           <pre key={elements.length} className="my-4 p-4 bg-zinc-900 dark:bg-zinc-800 rounded-lg overflow-x-auto">
-            <code className="text-sm text-zinc-100">{codeContent.join('\n')}</code>
+            <code className="text-sm text-slate-100">{codeContent.join('\n')}</code>
           </pre>
         )
         codeContent = []
@@ -361,7 +361,7 @@ function ArticleContent({ content }: { content: string }) {
     if (line.startsWith('## ')) {
       flushList()
       elements.push(
-        <h2 key={elements.length} className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">
+        <h2 key={elements.length} className="text-2xl font-bold text-white mt-8 mb-4">
           {line.slice(3)}
         </h2>
       )
@@ -371,7 +371,7 @@ function ArticleContent({ content }: { content: string }) {
     if (line.startsWith('### ')) {
       flushList()
       elements.push(
-        <h3 key={elements.length} className="text-xl font-semibold text-zinc-900 dark:text-white mt-6 mb-3">
+        <h3 key={elements.length} className="text-xl font-semibold text-white mt-6 mb-3">
           {line.slice(4)}
         </h3>
       )
@@ -381,7 +381,7 @@ function ArticleContent({ content }: { content: string }) {
     if (line.startsWith('#### ')) {
       flushList()
       elements.push(
-        <h4 key={elements.length} className="text-lg font-semibold text-zinc-900 dark:text-white mt-4 mb-2">
+        <h4 key={elements.length} className="text-lg font-semibold text-white mt-4 mb-2">
           {line.slice(5)}
         </h4>
       )
@@ -432,7 +432,7 @@ function ArticleContent({ content }: { content: string }) {
     // Regular paragraph
     flushList()
     elements.push(
-      <p key={elements.length} className="my-4 text-zinc-600 dark:text-zinc-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: formatInline(line) }} />
+      <p key={elements.length} className="my-4 text-slate-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: formatInline(line) }} />
     )
   }
 

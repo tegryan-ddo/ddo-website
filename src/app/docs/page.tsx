@@ -73,7 +73,7 @@ const resources = [
 
 export default function DocsPage() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+    <div className="min-h-screen bg-slate-950 text-slate-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-600/10 via-transparent to-accent-600/10" />
@@ -83,10 +83,10 @@ export default function DocsPage() {
               <Book className="w-3 h-3 mr-1" />
               Documentation
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Resources & Documentation
             </h1>
-            <p className="text-xl text-zinc-600 dark:text-zinc-400">
+            <p className="text-xl text-slate-400">
               Tools, guides, and resources to help you on your AI transformation journey.
             </p>
           </div>
@@ -105,7 +105,7 @@ export default function DocsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: sectionIndex * 0.1 }}
               >
-                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6">
+                <h2 className="text-2xl font-bold text-white mb-6">
                   {section.category}
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -120,20 +120,20 @@ export default function DocsPage() {
                       <Wrapper
                         key={itemIndex}
                         {...wrapperProps}
-                        className="block p-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-brand-500 transition-colors group"
+                        className="block p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-brand-500 transition-colors group"
                       >
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center flex-shrink-0">
+                          <div className="w-10 h-10 rounded-lg bg-brand-900/30 flex items-center justify-center flex-shrink-0">
                             <Icon className="w-5 h-5 text-brand-600" />
                           </div>
                           <div className="flex-1">
-                            <h3 className="font-semibold text-zinc-900 dark:text-white group-hover:text-brand-600 transition-colors flex items-center gap-2">
+                            <h3 className="font-semibold text-white group-hover:text-brand-400 transition-colors flex items-center gap-2">
                               {item.title}
                               {!item.internal && (
-                                <ExternalLink className="w-4 h-4 text-zinc-400" />
+                                <ExternalLink className="w-4 h-4 text-slate-400" />
                               )}
                             </h3>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
+                            <p className="text-sm text-slate-400 mt-1">
                               {item.description}
                             </p>
                           </div>
@@ -149,13 +149,13 @@ export default function DocsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-white dark:bg-zinc-900">
+      <section className="py-16 bg-slate-900">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">
               Need Help Getting Started?
             </h2>
-            <p className="text-zinc-600 dark:text-zinc-400 mb-6">
+            <p className="text-slate-400 mb-6">
               Our team is here to help you navigate your AI transformation journey.
               Reach out for a free consultation.
             </p>

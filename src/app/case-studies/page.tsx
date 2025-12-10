@@ -45,7 +45,7 @@ export default function CaseStudiesPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden bg-white dark:bg-zinc-950">
+        <section className="relative pt-32 pb-20 overflow-hidden bg-slate-950">
           <div className="absolute inset-0 bg-grid opacity-50 dark:opacity-30" />
           <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl" />
@@ -67,7 +67,7 @@ export default function CaseStudiesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6"
               >
                 Real Results,{' '}
                 <span className="text-gradient">Real Impact</span>
@@ -77,7 +77,7 @@ export default function CaseStudiesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400"
+                className="text-lg sm:text-xl text-slate-400"
               >
                 See how we&apos;ve helped organizations transform their AI initiatives
                 into measurable business outcomes.
@@ -87,7 +87,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Filter */}
-        <section className="py-8 bg-zinc-50 dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800">
+        <section className="py-8 bg-slate-900/50 border-y border-slate-800">
           <div className="container-wide">
             <div className="flex flex-wrap justify-center gap-2">
               {industries.map((industry) => (
@@ -97,7 +97,7 @@ export default function CaseStudiesPage() {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     filter === industry
                       ? 'bg-brand-600 text-white'
-                      : 'bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-700'
+                      : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
                   }`}
                 >
                   {industry}
@@ -108,7 +108,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Case Studies Grid */}
-        <section className="section bg-white dark:bg-zinc-950">
+        <section className="section bg-slate-950">
           <div className="container-wide">
             <motion.div
               variants={container}
@@ -132,33 +132,33 @@ export default function CaseStudiesPage() {
                       ))}
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mb-2">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                       {study.title}
                     </h2>
-                    <p className="text-brand-600 dark:text-brand-400 font-medium mb-4">
+                    <p className="text-brand-400 font-medium mb-4">
                       {study.client} | {study.industry}
                     </p>
 
                     <div className="space-y-4 mb-6">
                       <div>
-                        <h3 className="text-sm font-semibold text-zinc-900 dark:text-white mb-1">
+                        <h3 className="text-sm font-semibold text-white mb-1">
                           Challenge
                         </h3>
-                        <p className="text-zinc-600 dark:text-zinc-400">
+                        <p className="text-slate-400">
                           {study.challenge}
                         </p>
                       </div>
                       <div>
-                        <h3 className="text-sm font-semibold text-zinc-900 dark:text-white mb-1">
+                        <h3 className="text-sm font-semibold text-white mb-1">
                           Solution
                         </h3>
-                        <p className="text-zinc-600 dark:text-zinc-400">
+                        <p className="text-slate-400">
                           {study.solution}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-400 mb-6">
+                    <div className="flex flex-wrap gap-4 text-sm text-slate-400 mb-6">
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         {study.duration}
@@ -173,7 +173,7 @@ export default function CaseStudiesPage() {
                       {study.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
+                          className="px-2 py-1 text-xs rounded bg-slate-800 text-slate-400"
                         >
                           {tech}
                         </span>
@@ -193,8 +193,8 @@ export default function CaseStudiesPage() {
                     <div
                       className={`rounded-3xl bg-gradient-to-br ${study.color} p-1`}
                     >
-                      <div className="rounded-[calc(1.5rem-4px)] bg-white dark:bg-zinc-900 p-8">
-                        <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
+                      <div className="rounded-[calc(1.5rem-4px)] bg-slate-900 p-8">
+                        <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
                           <TrendingUp className="w-5 h-5 text-brand-500" />
                           Key Outcomes
                         </h3>
@@ -204,7 +204,7 @@ export default function CaseStudiesPage() {
                               <div className="text-3xl font-bold text-gradient mb-1">
                                 {outcome.metric}
                               </div>
-                              <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                              <div className="text-sm text-slate-400">
                                 {outcome.label}
                               </div>
                             </div>
@@ -220,7 +220,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="section bg-zinc-900 dark:bg-zinc-950">
+        <section className="section bg-slate-900">
           <div className="container-wide">
             <div className="max-w-3xl mx-auto text-center">
               <motion.h2
@@ -236,7 +236,7 @@ export default function CaseStudiesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-lg text-zinc-400 mb-8"
+                className="text-lg text-slate-400 mb-8"
               >
                 Let&apos;s discuss how we can help you achieve similar results.
               </motion.p>
@@ -256,7 +256,7 @@ export default function CaseStudiesPage() {
                 <Button
                   variant="outline"
                   size="xl"
-                  className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white"
+                  className="border-slate-700 bg-transparent text-white hover:bg-slate-800 hover:text-white"
                   asChild
                 >
                   <Link href="/assessment">

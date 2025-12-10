@@ -118,7 +118,7 @@ export default function ContactPage() {
     return (
       <>
         <Navbar />
-        <main className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-950">
+        <main className="min-h-screen flex items-center justify-center bg-slate-950">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -127,10 +127,10 @@ export default function ContactPage() {
             <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 className="w-8 h-8 text-green-500" />
             </div>
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+            <h1 className="text-2xl font-bold text-white mb-4">
               Thank You!
             </h1>
-            <p className="text-zinc-600 dark:text-zinc-400 mb-8">
+            <p className="text-slate-400 mb-8">
               We&apos;ve received your message and will get back to you within 24 hours.
               In the meantime, feel free to explore our resources.
             </p>
@@ -156,8 +156,8 @@ export default function ContactPage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-16 overflow-hidden bg-white dark:bg-zinc-950">
-          <div className="absolute inset-0 bg-grid opacity-50 dark:opacity-30" />
+        <section className="relative pt-32 pb-16 overflow-hidden bg-slate-950">
+          <div className="absolute inset-0 bg-grid opacity-30" />
           <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl" />
 
           <div className="container-wide relative z-10">
@@ -177,7 +177,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6"
+                className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-6"
               >
                 Let&apos;s Start a{' '}
                 <span className="text-gradient">Conversation</span>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-lg text-zinc-600 dark:text-zinc-400"
+                className="text-lg text-slate-400"
               >
                 Tell us about your AI initiatives and challenges. We&apos;ll respond
                 within 24 hours with tailored insights.
@@ -197,7 +197,7 @@ export default function ContactPage() {
         </section>
 
         {/* Form Section */}
-        <section className="py-16 bg-zinc-50 dark:bg-zinc-900/50">
+        <section className="py-16 bg-slate-900/50">
           <div className="container-wide">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               {/* Benefits Sidebar */}
@@ -208,34 +208,34 @@ export default function ContactPage() {
                 className="lg:col-span-1"
               >
                 <div className="sticky top-32">
-                  <h2 className="text-xl font-semibold text-zinc-900 dark:text-white mb-6">
+                  <h2 className="text-xl font-semibold text-white mb-6">
                     What to Expect
                   </h2>
                   <ul className="space-y-4 mb-8">
                     {benefits.map((benefit) => (
                       <li key={benefit} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-zinc-600 dark:text-zinc-400">
+                        <span className="text-slate-400">
                           {benefit}
                         </span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="p-6 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                    <h3 className="font-medium text-zinc-900 dark:text-white mb-4">
+                  <div className="p-6 rounded-2xl bg-slate-800 border border-slate-700">
+                    <h3 className="font-medium text-white mb-4">
                       Contact Information
                     </h3>
                     <div className="space-y-3 text-sm">
-                      <div className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400">
+                      <div className="flex items-center gap-3 text-slate-400">
                         <Mail className="w-4 h-4" />
                         <span>hello@digitaldevops.io</span>
                       </div>
-                      <div className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400">
+                      <div className="flex items-center gap-3 text-slate-400">
                         <MapPin className="w-4 h-4" />
                         <span>Remote-first, US-based</span>
                       </div>
-                      <div className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400">
+                      <div className="flex items-center gap-3 text-slate-400">
                         <Calendar className="w-4 h-4" />
                         <span>Mon-Fri, 9am-6pm EST</span>
                       </div>
@@ -254,13 +254,13 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                   {/* Error Banner */}
                   {submitError && (
-                    <div className="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 flex items-start gap-3">
+                    <div className="p-4 rounded-xl bg-red-900/20 border border-red-800 flex items-start gap-3">
                       <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-medium text-red-800 dark:text-red-200">
+                        <p className="font-medium text-red-200">
                           Submission Failed
                         </p>
-                        <p className="text-sm text-red-600 dark:text-red-300">
+                        <p className="text-sm text-red-300">
                           {submitError}
                         </p>
                       </div>
@@ -268,8 +268,8 @@ export default function ContactPage() {
                   )}
 
                   {/* Personal Info */}
-                  <div className="p-6 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                    <h3 className="text-lg font-medium text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
+                  <div className="p-6 rounded-2xl bg-slate-800 border border-slate-700">
+                    <h3 className="text-lg font-medium text-white mb-6 flex items-center gap-2">
                       <User className="w-5 h-5 text-brand-500" />
                       About You
                     </h3>
@@ -327,8 +327,8 @@ export default function ContactPage() {
                   </div>
 
                   {/* Project Info */}
-                  <div className="p-6 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                    <h3 className="text-lg font-medium text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
+                  <div className="p-6 rounded-2xl bg-slate-800 border border-slate-700">
+                    <h3 className="text-lg font-medium text-white mb-6 flex items-center gap-2">
                       <Building2 className="w-5 h-5 text-brand-500" />
                       Project Details
                     </h3>
@@ -338,10 +338,10 @@ export default function ContactPage() {
                         <select
                           id="service"
                           {...register('service')}
-                          className={`mt-2 w-full px-3 py-2 border rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 ${
+                          className={`mt-2 w-full px-3 py-2 border rounded-lg bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-brand-500 ${
                             errors.service
                               ? 'border-red-500'
-                              : 'border-zinc-200 dark:border-zinc-700'
+                              : 'border-slate-700'
                           }`}
                         >
                           <option value="">Select a service...</option>
@@ -360,7 +360,7 @@ export default function ContactPage() {
                         <select
                           id="budget"
                           {...register('budget')}
-                          className="mt-2 w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                          className="mt-2 w-full px-3 py-2 border border-slate-700 rounded-lg bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-brand-500"
                         >
                           <option value="">Select budget range...</option>
                           {budgetRanges.map((range) => (
@@ -375,7 +375,7 @@ export default function ContactPage() {
                         <select
                           id="timeline"
                           {...register('timeline')}
-                          className="mt-2 w-full px-3 py-2 border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                          className="mt-2 w-full px-3 py-2 border border-slate-700 rounded-lg bg-slate-900 text-white focus:outline-none focus:ring-2 focus:ring-brand-500"
                         >
                           <option value="">When do you need to start?</option>
                           {timelines.map((timeline) => (
@@ -389,8 +389,8 @@ export default function ContactPage() {
                   </div>
 
                   {/* Message */}
-                  <div className="p-6 rounded-2xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                    <h3 className="text-lg font-medium text-zinc-900 dark:text-white mb-6 flex items-center gap-2">
+                  <div className="p-6 rounded-2xl bg-slate-800 border border-slate-700">
+                    <h3 className="text-lg font-medium text-white mb-6 flex items-center gap-2">
                       <MessageSquare className="w-5 h-5 text-brand-500" />
                       Your Message
                     </h3>
@@ -403,10 +403,10 @@ export default function ContactPage() {
                         {...register('message')}
                         rows={5}
                         placeholder="What are you trying to achieve? What challenges are you facing? Any specific technologies or requirements?"
-                        className={`mt-2 w-full px-3 py-2 border rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-brand-500 resize-none ${
+                        className={`mt-2 w-full px-3 py-2 border rounded-lg bg-slate-900 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 resize-none ${
                           errors.message
                             ? 'border-red-500'
-                            : 'border-zinc-200 dark:border-zinc-700'
+                            : 'border-slate-700'
                         }`}
                       />
                       {errors.message && (
@@ -440,7 +440,7 @@ export default function ContactPage() {
                     </Button>
                   </div>
 
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 text-center">
+                  <p className="text-xs text-slate-500 text-center">
                     By submitting this form, you agree to our{' '}
                     <Link href="/privacy" className="underline hover:text-brand-500">
                       Privacy Policy

@@ -84,7 +84,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
       </head>
-      <body className="min-h-screen bg-white font-sans antialiased dark:bg-zinc-950">
+      <body className="min-h-screen bg-slate-950 font-sans antialiased text-slate-50">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

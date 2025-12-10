@@ -29,12 +29,12 @@ export default function CaseStudyPage() {
 
   if (!caseStudy) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-950">
+      <div className="min-h-screen flex items-center justify-center bg-slate-950">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-zinc-900 dark:text-white mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4">
             Case Study Not Found
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400 mb-8">
+          <p className="text-slate-400 mb-8">
             The case study you're looking for doesn't exist.
           </p>
           <Button asChild>
@@ -49,7 +49,7 @@ export default function CaseStudyPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-950">
+    <main className="min-h-screen bg-slate-950">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         {/* Background */}
@@ -65,7 +65,7 @@ export default function CaseStudyPage() {
             {/* Back Link */}
             <Link
               href="/case-studies"
-              className="inline-flex items-center text-sm text-zinc-500 dark:text-zinc-400 hover:text-brand-500 transition-colors mb-8"
+              className="inline-flex items-center text-sm text-slate-400 hover:text-brand-500 transition-colors mb-8"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Case Studies
@@ -81,17 +81,17 @@ export default function CaseStudyPage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-4 max-w-4xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 max-w-4xl">
               {caseStudy.title}
             </h1>
 
             {/* Client Info */}
-            <p className="text-xl text-brand-600 dark:text-brand-400 font-medium mb-6">
+            <p className="text-xl text-brand-400 font-medium mb-6">
               {caseStudy.client} | {caseStudy.industry}
             </p>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-zinc-500 dark:text-zinc-400">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 <span>{caseStudy.duration}</span>
@@ -110,7 +110,7 @@ export default function CaseStudyPage() {
       </section>
 
       {/* Outcomes Banner */}
-      <section className="py-12 bg-zinc-50 dark:bg-zinc-900">
+      <section className="py-12 bg-slate-900">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -119,7 +119,7 @@ export default function CaseStudyPage() {
           >
             <div className="flex items-center gap-2 mb-6">
               <TrendingUp className="h-5 w-5 text-brand-500" />
-              <h2 className="text-lg font-semibold text-zinc-900 dark:text-white">
+              <h2 className="text-lg font-semibold text-white">
                 Key Outcomes
               </h2>
             </div>
@@ -129,7 +129,7 @@ export default function CaseStudyPage() {
                   <div className="text-3xl sm:text-4xl font-bold text-gradient mb-1">
                     {outcome.metric}
                   </div>
-                  <div className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <div className="text-sm text-slate-400">
                     {outcome.label}
                   </div>
                 </div>
@@ -152,39 +152,39 @@ export default function CaseStudyPage() {
             >
               {/* Challenge & Solution Summary */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <div className="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-xl">
-                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-white mb-2 uppercase tracking-wide">
+                <div className="p-6 bg-slate-900 rounded-xl">
+                  <h3 className="text-sm font-semibold text-white mb-2 uppercase tracking-wide">
                     The Challenge
                   </h3>
-                  <p className="text-zinc-600 dark:text-zinc-400">
+                  <p className="text-slate-400">
                     {caseStudy.challenge}
                   </p>
                 </div>
-                <div className="p-6 bg-brand-50 dark:bg-brand-900/20 rounded-xl">
-                  <h3 className="text-sm font-semibold text-brand-900 dark:text-brand-100 mb-2 uppercase tracking-wide">
+                <div className="p-6 bg-brand-900/20 rounded-xl">
+                  <h3 className="text-sm font-semibold text-brand-100 mb-2 uppercase tracking-wide">
                     Our Solution
                   </h3>
-                  <p className="text-brand-800 dark:text-brand-200">
+                  <p className="text-brand-200">
                     {caseStudy.solution}
                   </p>
                 </div>
               </div>
 
               {/* Full Content */}
-              <div className="prose prose-zinc dark:prose-invert prose-lg max-w-none">
+              <div className="prose prose-invert prose-slate prose-lg max-w-none">
                 <CaseStudyContent content={caseStudy.content} />
               </div>
 
               {/* Technologies Used */}
-              <div className="mt-12 p-6 bg-zinc-50 dark:bg-zinc-900 rounded-xl">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+              <div className="mt-12 p-6 bg-slate-900 rounded-xl">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {caseStudy.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 text-sm rounded-full bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
+                      className="px-3 py-1.5 text-sm rounded-full bg-slate-800 text-slate-300 border border-slate-700"
                     >
                       {tech}
                     </span>
@@ -196,14 +196,14 @@ export default function CaseStudyPage() {
               {caseStudy.testimonial && (
                 <div className="mt-12 p-8 bg-gradient-to-br from-brand-500/10 to-accent-500/10 rounded-2xl">
                   <Quote className="h-10 w-10 text-brand-500 mb-4" />
-                  <blockquote className="text-xl text-zinc-900 dark:text-white mb-4 italic">
+                  <blockquote className="text-xl text-white mb-4 italic">
                     "{caseStudy.testimonial.quote}"
                   </blockquote>
                   <div>
-                    <p className="font-semibold text-zinc-900 dark:text-white">
+                    <p className="font-semibold text-white">
                       {caseStudy.testimonial.author}
                     </p>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                    <p className="text-sm text-slate-400">
                       {caseStudy.testimonial.role}
                     </p>
                   </div>
@@ -212,7 +212,7 @@ export default function CaseStudyPage() {
 
               {/* Share Section */}
               <div className="mt-8 flex items-center gap-4">
-                <span className="text-sm text-zinc-500 dark:text-zinc-400">Share this case study:</span>
+                <span className="text-sm text-slate-400">Share this case study:</span>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" asChild>
                     <a
@@ -261,37 +261,37 @@ export default function CaseStudyPage() {
                 </div>
 
                 {/* Project Details */}
-                <div className="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-xl">
-                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+                <div className="p-6 bg-slate-900 rounded-xl">
+                  <h3 className="text-lg font-semibold text-white mb-4">
                     Project Details
                   </h3>
                   <dl className="space-y-4">
                     <div>
-                      <dt className="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide">
+                      <dt className="text-xs text-slate-400 uppercase tracking-wide">
                         Industry
                       </dt>
-                      <dd className="text-sm font-medium text-zinc-900 dark:text-white">
+                      <dd className="text-sm font-medium text-white">
                         {caseStudy.industry}
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide">
+                      <dt className="text-xs text-slate-400 uppercase tracking-wide">
                         Duration
                       </dt>
-                      <dd className="text-sm font-medium text-zinc-900 dark:text-white">
+                      <dd className="text-sm font-medium text-white">
                         {caseStudy.duration}
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide">
+                      <dt className="text-xs text-slate-400 uppercase tracking-wide">
                         Team Size
                       </dt>
-                      <dd className="text-sm font-medium text-zinc-900 dark:text-white">
+                      <dd className="text-sm font-medium text-white">
                         {caseStudy.teamSize}
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide">
+                      <dt className="text-xs text-slate-400 uppercase tracking-wide">
                         Services
                       </dt>
                       <dd className="flex flex-wrap gap-1 mt-1">
@@ -308,7 +308,7 @@ export default function CaseStudyPage() {
                 {/* Related Case Studies */}
                 {relatedStudies.length > 0 && (
                   <div>
-                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-4">
+                    <h3 className="text-lg font-semibold text-white mb-4">
                       Related Case Studies
                     </h3>
                     <div className="space-y-4">
@@ -316,15 +316,15 @@ export default function CaseStudyPage() {
                         <Link
                           key={related.id}
                           href={`/case-studies/${related.id}`}
-                          className="block p-4 bg-zinc-50 dark:bg-zinc-900 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                          className="block p-4 bg-slate-900 rounded-xl hover:bg-slate-800 transition-colors"
                         >
                           <Badge variant="outline" className="text-xs mb-2">
                             {related.industry}
                           </Badge>
-                          <h4 className="font-medium text-zinc-900 dark:text-white text-sm leading-snug">
+                          <h4 className="font-medium text-white text-sm leading-snug">
                             {related.title}
                           </h4>
-                          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
+                          <p className="text-xs text-slate-400 mt-2">
                             {related.client}
                           </p>
                         </Link>
@@ -339,7 +339,7 @@ export default function CaseStudyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-zinc-900 dark:bg-zinc-950">
+      <section className="py-16 bg-slate-900">
         <div className="container-wide text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Ready to Create Your Success Story?
@@ -354,7 +354,7 @@ export default function CaseStudyPage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white" asChild>
+            <Button variant="outline" size="lg" className="border-slate-700 bg-transparent text-white hover:bg-slate-800 hover:text-white" asChild>
               <Link href="/case-studies">View More Case Studies</Link>
             </Button>
           </div>
@@ -407,21 +407,21 @@ function CaseStudyContent({ content }: { content: string }) {
       const [header, ...body] = tableRows
       elements.push(
         <div key={elements.length} className="my-6 overflow-x-auto">
-          <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-700">
+          <table className="min-w-full divide-y divide-slate-700">
             <thead>
               <tr>
                 {header.map((cell, i) => (
-                  <th key={i} className="px-4 py-2 text-left text-sm font-semibold text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800">
+                  <th key={i} className="px-4 py-2 text-left text-sm font-semibold text-white bg-slate-800">
                     {cell.trim()}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-700">
+            <tbody className="divide-y divide-slate-700">
               {body.filter(row => !row[0].startsWith('---') && !row[0].includes('----')).map((row, i) => (
                 <tr key={i}>
                   {row.map((cell, j) => (
-                    <td key={j} className="px-4 py-2 text-sm text-zinc-600 dark:text-zinc-300">
+                    <td key={j} className="px-4 py-2 text-sm text-slate-300">
                       {cell.trim()}
                     </td>
                   ))}
@@ -440,8 +440,8 @@ function CaseStudyContent({ content }: { content: string }) {
     return text
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      .replace(/`(.+?)`/g, '<code class="bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded text-sm font-mono">$1</code>')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-brand-600 dark:text-brand-400 hover:underline">$1</a>')
+      .replace(/`(.+?)`/g, '<code class="bg-slate-800 px-1 py-0.5 rounded text-sm font-mono">$1</code>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-brand-400 hover:underline">$1</a>')
   }
 
   for (let i = 0; i < lines.length; i++) {
@@ -451,8 +451,8 @@ function CaseStudyContent({ content }: { content: string }) {
     if (line.startsWith('```')) {
       if (inCodeBlock) {
         elements.push(
-          <pre key={elements.length} className="my-4 p-4 bg-zinc-900 dark:bg-zinc-800 rounded-lg overflow-x-auto">
-            <code className="text-sm text-zinc-100 font-mono">{codeContent.join('\n')}</code>
+          <pre key={elements.length} className="my-4 p-4 bg-slate-800 rounded-lg overflow-x-auto">
+            <code className="text-sm text-slate-100 font-mono">{codeContent.join('\n')}</code>
           </pre>
         )
         codeContent = []
@@ -487,7 +487,7 @@ function CaseStudyContent({ content }: { content: string }) {
     if (line.startsWith('## ')) {
       flushList()
       elements.push(
-        <h2 key={elements.length} className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
+        <h2 key={elements.length} className="text-2xl font-bold text-white mt-10 mb-4">
           {line.slice(3)}
         </h2>
       )
@@ -497,7 +497,7 @@ function CaseStudyContent({ content }: { content: string }) {
     if (line.startsWith('### ')) {
       flushList()
       elements.push(
-        <h3 key={elements.length} className="text-xl font-semibold text-zinc-900 dark:text-white mt-8 mb-3">
+        <h3 key={elements.length} className="text-xl font-semibold text-white mt-8 mb-3">
           {line.slice(4)}
         </h3>
       )
@@ -507,7 +507,7 @@ function CaseStudyContent({ content }: { content: string }) {
     if (line.startsWith('#### ')) {
       flushList()
       elements.push(
-        <h4 key={elements.length} className="text-lg font-semibold text-zinc-900 dark:text-white mt-6 mb-2">
+        <h4 key={elements.length} className="text-lg font-semibold text-white mt-6 mb-2">
           {line.slice(5)}
         </h4>
       )
@@ -517,7 +517,7 @@ function CaseStudyContent({ content }: { content: string }) {
     // Horizontal rule
     if (line.trim() === '---') {
       flushList()
-      elements.push(<hr key={elements.length} className="my-8 border-zinc-200 dark:border-zinc-700" />)
+      elements.push(<hr key={elements.length} className="my-8 border-slate-700" />)
       continue
     }
 
@@ -549,7 +549,7 @@ function CaseStudyContent({ content }: { content: string }) {
     // Regular paragraph
     flushList()
     elements.push(
-      <p key={elements.length} className="my-4 text-zinc-600 dark:text-zinc-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: formatInline(line) }} />
+      <p key={elements.length} className="my-4 text-slate-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: formatInline(line) }} />
     )
   }
 
