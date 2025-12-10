@@ -1,8 +1,8 @@
 import { Navbar } from '@/components/Navbar'
-import { HeroSection } from '@/components/HeroSection'
-import { ServicesPreview } from '@/components/ServicesPreview'
-import { SocialProof } from '@/components/SocialProof'
-import { CTASection } from '@/components/CTASection'
+import { HeroSectionNew } from '@/components/HeroSectionNew'
+import { ServicesGrid } from '@/components/ServicesGrid'
+import { WhyDevAIOps } from '@/components/WhyDevAIOps'
+import { CTASectionNew } from '@/components/CTASectionNew'
 import { Footer } from '@/components/FooterNew'
 
 export default function Home() {
@@ -10,10 +10,10 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <HeroSection />
-        <SocialProof />
-        <ServicesPreview />
-        <CTASection />
+        <HeroSectionNew />
+        <ServicesGrid />
+        <WhyDevAIOps />
+        <CTASectionNew />
       </main>
       <Footer />
     </>

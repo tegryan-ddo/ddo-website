@@ -1,54 +1,55 @@
 'use client'
 
 import Link from 'next/link'
-import { Layers } from 'lucide-react'
+import { Terminal } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 
 const footerNavigation = {
   services: [
-    { name: 'AI Strategy', href: '/services#strategy' },
-    { name: 'AI Implementation', href: '/services#implementation' },
-    { name: 'DevOps Transformation', href: '/services#devops' },
+    { name: 'AWS Infrastructure', href: '/services#aws-infrastructure' },
     { name: 'Security & Compliance', href: '/services#security' },
+    { name: 'DevOps Support', href: '/services#support' },
+    { name: 'Managed Infrastructure', href: '/services#managed' },
+    { name: 'Next.js Development', href: '/services#development' },
   ],
   company: [
     { name: 'About', href: '/about' },
     { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Insights', href: '/insights' },
+    { name: 'Blog', href: '/insights' },
     { name: 'Careers', href: '/careers' },
   ],
   resources: [
-    { name: 'AI Readiness Assessment', href: '/assessment' },
-    { name: 'ROI Calculator', href: '/calculator' },
-    { name: 'Documentation', href: '/docs' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Free AWS Review', href: '/contact?package=well-architected-review' },
+    { name: 'Cost Calculator', href: '/calculator' },
     { name: 'Contact', href: '/contact' },
   ],
 }
 
 export function Footer() {
   return (
-    <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
+    <footer className="bg-slate-900 border-t border-slate-800">
       <div className="container-wide py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
-                <Layers className="w-5 h-5 text-white" />
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500">
+                <Terminal className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-semibold text-zinc-900 dark:text-white">
+              <span className="text-xl font-semibold text-white">
                 Digital DevOps
               </span>
             </Link>
-            <p className="text-zinc-600 dark:text-zinc-400 mb-6 max-w-sm">
-              AI Enablement Consulting for enterprises ready to transform.
-              We turn AI experiments into business value.
+            <p className="text-slate-400 mb-6 max-w-sm">
+              AI-augmented DevOps consulting. Senior engineers + AI tooling = 10x velocity.
+              AWS infrastructure, security, and development.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white mb-4">
+            <h3 className="text-sm font-semibold text-white mb-4">
               Services
             </h3>
             <ul className="space-y-3">
@@ -56,7 +57,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-slate-400 hover:text-white transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -67,7 +68,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white mb-4">
+            <h3 className="text-sm font-semibold text-white mb-4">
               Company
             </h3>
             <ul className="space-y-3">
@@ -75,7 +76,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-slate-400 hover:text-white transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -86,7 +87,7 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white mb-4">
+            <h3 className="text-sm font-semibold text-white mb-4">
               Resources
             </h3>
             <ul className="space-y-3">
@@ -94,7 +95,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-slate-400 hover:text-white transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -104,22 +105,22 @@ export function Footer() {
           </div>
         </div>
 
-        <Separator className="my-8" />
+        <Separator className="my-8 bg-slate-800" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} Digital DevOps, Inc. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link
               href="/privacy"
-              className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className="text-sm text-slate-500 hover:text-white transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className="text-sm text-slate-500 hover:text-white transition-colors"
             >
               Terms of Service
             </Link>

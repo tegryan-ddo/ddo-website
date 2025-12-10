@@ -4,15 +4,14 @@ import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Layers } from 'lucide-react'
+import { Menu, X, Terminal } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { ThemeToggle } from '@/components/ThemeToggle'
 import { cn } from '@/lib/utils'
 
 const navigation = [
   { name: 'Services', href: '/services' },
+  { name: 'Pricing', href: '/pricing' },
   { name: 'Case Studies', href: '/case-studies' },
-  { name: 'Insights', href: '/insights' },
   { name: 'About', href: '/about' },
 ]
 
@@ -34,17 +33,17 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/80 dark:bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800'
+          ? 'bg-slate-950/90 backdrop-blur-lg border-b border-slate-800'
           : 'bg-transparent'
       )}
     >
       <nav className="container-wide flex items-center justify-between py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
-            <Layers className="w-5 h-5 text-white" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500">
+            <Terminal className="w-5 h-5 text-white" />
           </div>
-          <span className="text-xl font-semibold text-zinc-900 dark:text-white">
+          <span className="text-xl font-semibold text-white">
             Digital DevOps
           </span>
         </Link>
@@ -56,8 +55,8 @@ export function Navbar() {
               key={item.name}
               href={item.href}
               className={cn(
-                'nav-link',
-                pathname === item.href && 'text-zinc-900 dark:text-white'
+                'text-sm font-medium text-slate-400 hover:text-white transition-colors',
+                pathname === item.href && 'text-white'
               )}
             >
               {item.name}
@@ -67,20 +66,34 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <ThemeToggle />
-          <Button variant="gradient" asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-slate-600 bg-slate-800/50 text-white hover:bg-slate-700 hover:text-white"
+            asChild
+          >
+            <Link href="/contact?package=well-architected-review">
+              Free AWS Review
+            </Link>
+          </Button>
+          <Button
+            variant="gradient"
+            size="sm"
+            className="bg-gradient-to-r from-blue-500 to-cyan-500"
+            asChild
+          >
             <Link href="/contact">
-              <span>Get Started</span>
+              Get Started
             </Link>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2">
-          <ThemeToggle />
           <Button
             variant="ghost"
             size="icon"
+            className="text-slate-400 hover:text-white hover:bg-slate-800"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -101,7 +114,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800"
+            className="md:hidden bg-slate-950 border-b border-slate-800"
           >
             <div className="container-wide py-4 space-y-4">
               {navigation.map((item) => (
@@ -110,18 +123,33 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    'block py-2 text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors',
-                    pathname === item.href && 'text-zinc-900 dark:text-white'
+                    'block py-2 text-base font-medium text-slate-400 hover:text-white transition-colors',
+                    pathname === item.href && 'text-white'
                   )}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="gradient" className="w-full" asChild>
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  <span>Get Started</span>
-                </Link>
-              </Button>
+              <div className="flex flex-col gap-2 pt-2">
+                <Button
+                  variant="outline"
+                  className="w-full border-slate-600 bg-slate-800/50 text-white hover:bg-slate-700"
+                  asChild
+                >
+                  <Link href="/contact?package=well-architected-review" onClick={() => setMobileMenuOpen(false)}>
+                    Free AWS Review
+                  </Link>
+                </Button>
+                <Button
+                  variant="gradient"
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500"
+                  asChild
+                >
+                  <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                    Get Started
+                  </Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
