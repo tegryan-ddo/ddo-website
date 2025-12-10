@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { getCurrentUser, fetchUserAttributes, signOut } from 'aws-amplify/auth'
 
-// TODO: Remove this bypass before production
-const DEV_BYPASS_AUTH = true
+// Auth bypass removed for production
+const DEV_BYPASS_AUTH = false
 
 interface Invite {
   id: string

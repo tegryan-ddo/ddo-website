@@ -6,8 +6,8 @@ import { getCurrentUser, fetchUserAttributes, signOut } from 'aws-amplify/auth'
 import { Authenticator } from '@aws-amplify/ui-react'
 import KanbanBoard from '@/components/kanban/KanbanBoard'
 
-// TODO: Remove this bypass before production
-const DEV_BYPASS_AUTH = true
+// Auth bypass removed for production
+const DEV_BYPASS_AUTH = false
 
 interface UserData {
   userId: string

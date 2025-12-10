@@ -139,6 +139,253 @@ export function getInviteEmailHtml(params: {
   `
 }
 
+// Contact form notification email (sent to team)
+export function getContactNotificationEmailHtml(params: {
+  name: string
+  email: string
+  company: string
+  role?: string
+  service: string
+  budget?: string
+  timeline?: string
+  message: string
+}) {
+  const { name, email, company, role, service, budget, timeline, message } = params
+
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Contact Form Submission</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="min-width: 100%; background-color: #f4f4f5;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <!-- Header -->
+          <tr>
+            <td style="padding: 40px 40px 20px; background-color: #0f172a; border-radius: 8px 8px 0 0;">
+              <h1 style="margin: 0; font-size: 24px; font-weight: 600; color: #ffffff;">
+                New Lead: ${name}
+              </h1>
+              <p style="margin: 8px 0 0; font-size: 14px; color: #94a3b8;">
+                ${company} • ${service}
+              </p>
+            </td>
+          </tr>
+
+          <!-- Contact Details -->
+          <tr>
+            <td style="padding: 24px 40px;">
+              <h2 style="margin: 0 0 16px; font-size: 16px; font-weight: 600; color: #18181b; text-transform: uppercase; letter-spacing: 0.5px;">
+                Contact Information
+              </h2>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #e4e4e7;">
+                    <span style="color: #71717a; font-size: 14px;">Name</span><br>
+                    <span style="color: #18181b; font-size: 16px; font-weight: 500;">${name}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #e4e4e7;">
+                    <span style="color: #71717a; font-size: 14px;">Email</span><br>
+                    <a href="mailto:${email}" style="color: #2563eb; font-size: 16px; font-weight: 500; text-decoration: none;">${email}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #e4e4e7;">
+                    <span style="color: #71717a; font-size: 14px;">Company</span><br>
+                    <span style="color: #18181b; font-size: 16px; font-weight: 500;">${company}</span>
+                  </td>
+                </tr>
+                ${role ? `
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #e4e4e7;">
+                    <span style="color: #71717a; font-size: 14px;">Role</span><br>
+                    <span style="color: #18181b; font-size: 16px; font-weight: 500;">${role}</span>
+                  </td>
+                </tr>
+                ` : ''}
+              </table>
+            </td>
+          </tr>
+
+          <!-- Project Details -->
+          <tr>
+            <td style="padding: 0 40px 24px;">
+              <h2 style="margin: 0 0 16px; font-size: 16px; font-weight: 600; color: #18181b; text-transform: uppercase; letter-spacing: 0.5px;">
+                Project Details
+              </h2>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #e4e4e7;">
+                    <span style="color: #71717a; font-size: 14px;">Service Interest</span><br>
+                    <span style="color: #18181b; font-size: 16px; font-weight: 500;">${service}</span>
+                  </td>
+                </tr>
+                ${budget ? `
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #e4e4e7;">
+                    <span style="color: #71717a; font-size: 14px;">Budget Range</span><br>
+                    <span style="color: #18181b; font-size: 16px; font-weight: 500;">${budget}</span>
+                  </td>
+                </tr>
+                ` : ''}
+                ${timeline ? `
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #e4e4e7;">
+                    <span style="color: #71717a; font-size: 14px;">Timeline</span><br>
+                    <span style="color: #18181b; font-size: 16px; font-weight: 500;">${timeline}</span>
+                  </td>
+                </tr>
+                ` : ''}
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message -->
+          <tr>
+            <td style="padding: 0 40px 24px;">
+              <h2 style="margin: 0 0 16px; font-size: 16px; font-weight: 600; color: #18181b; text-transform: uppercase; letter-spacing: 0.5px;">
+                Message
+              </h2>
+              <div style="padding: 16px; background-color: #f4f4f5; border-radius: 6px;">
+                <p style="margin: 0; font-size: 14px; line-height: 22px; color: #3f3f46; white-space: pre-wrap;">${message}</p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          <tr>
+            <td style="padding: 0 40px 40px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="center">
+                    <a href="mailto:${email}?subject=Re: Your inquiry to Digital DevOps"
+                       style="display: inline-block; padding: 14px 32px; background-color: #2563eb; color: #ffffff; text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 6px;">
+                      Reply to ${name}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 20px 40px; background-color: #f4f4f5; border-radius: 0 0 8px 8px;">
+              <p style="margin: 0; font-size: 12px; line-height: 18px; color: #71717a; text-align: center;">
+                Submitted via digitaldevops.io contact form<br>
+                ${new Date().toLocaleString('en-US', { timeZone: 'America/Vancouver' })} PT
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `
+}
+
+// Contact form confirmation email (sent to user)
+export function getContactConfirmationEmailHtml(params: {
+  name: string
+  service: string
+}) {
+  const { name, service } = params
+
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanks for reaching out!</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="min-width: 100%; background-color: #f4f4f5;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <!-- Header -->
+          <tr>
+            <td style="padding: 40px 40px 20px; text-align: center;">
+              <h1 style="margin: 0; font-size: 24px; font-weight: 600; color: #18181b;">
+                Digital DevOps
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding: 20px 40px;">
+              <h2 style="margin: 0 0 16px; font-size: 20px; font-weight: 600; color: #18181b;">
+                Thanks for reaching out, ${name}!
+              </h2>
+              <p style="margin: 0 0 16px; font-size: 16px; line-height: 24px; color: #3f3f46;">
+                We've received your inquiry about <strong>${service}</strong> and will get back to you within 24 hours.
+              </p>
+              <p style="margin: 0 0 24px; font-size: 16px; line-height: 24px; color: #3f3f46;">
+                In the meantime, here are some resources you might find helpful:
+              </p>
+
+              <!-- Resources -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="padding: 12px 16px; background-color: #f4f4f5; border-radius: 6px; margin-bottom: 8px;">
+                    <a href="https://digitaldevops.io/pricing" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                      View Our Pricing &rarr;
+                    </a>
+                    <p style="margin: 4px 0 0; font-size: 14px; color: #71717a;">
+                      Transparent, fixed-price packages for every need
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <div style="height: 8px;"></div>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="padding: 12px 16px; background-color: #f4f4f5; border-radius: 6px;">
+                    <a href="https://digitaldevops.io/docs" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                      Browse Resources &rarr;
+                    </a>
+                    <p style="margin: 4px 0 0; font-size: 14px; color: #71717a;">
+                      Guides, case studies, and tools
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 20px 40px 40px;">
+              <hr style="margin: 0 0 20px; border: none; border-top: 1px solid #e4e4e7;">
+              <p style="margin: 0; font-size: 14px; line-height: 22px; color: #71717a;">
+                Questions? Reply to this email or reach us at <a href="mailto:hello@digitaldevops.io" style="color: #2563eb;">hello@digitaldevops.io</a>
+              </p>
+              <p style="margin: 16px 0 0; font-size: 12px; line-height: 18px; color: #a1a1aa;">
+                Digital DevOps, Inc.<br>
+                AI-Augmented AWS & DevOps Consulting
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  `
+}
+
 export function getMagicLinkEmailHtml(params: { magicLink: string }) {
   const { magicLink } = params
 

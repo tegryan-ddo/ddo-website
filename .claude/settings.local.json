@@ -59,7 +59,11 @@
       "Bash(git -C \"c:\\Users\\barff\\Documents\\digital-devops-nextjs\" tag -a v1.0.0-beta -m \"DDO Website v1.0.0-beta - Complete overhaul with Next.js 16\")",
       "Bash(git -C \"c:\\Users\\barff\\Documents\\digital-devops-nextjs\" push origin v1.0.0-beta)",
       "Bash(cmd /c \"taskkill /f /im node.exe 2>nul & timeout /t 2 /nobreak >nul & echo Done\")",
-      "Bash(cmd /c \"del /q c:\\Users\\barff\\Documents\\digital-devops-nextjs\\.next\\dev\\lock 2>nul && echo deleted\")"
+      "Bash(cmd /c \"del /q c:\\Users\\barff\\Documents\\digital-devops-nextjs\\.next\\dev\\lock 2>nul && echo deleted\")",
+      "Bash(grep:*)",
+      "Bash(cmd /c \"rmdir /s /q c:\\Users\\barff\\Documents\\digital-devops-nextjs\\src\\app\\test-logos 2>nul && echo Deleted test-logos || echo Not found or already deleted\")",
+      "Bash(powershell -Command:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []

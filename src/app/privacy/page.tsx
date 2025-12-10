@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import { Badge } from '@/components/ui/badge'
 import { Shield } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Digital DevOps privacy policy. Learn how we collect, use, and protect your personal information.',
+}
 
 export default function PrivacyPage() {
   return (

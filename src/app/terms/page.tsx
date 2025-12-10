@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import { Badge } from '@/components/ui/badge'
 import { FileText } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'Digital DevOps terms of service. Understand your rights and responsibilities when using our services.',
+}
 
 export default function TermsPage() {
   return (

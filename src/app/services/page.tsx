@@ -4,186 +4,317 @@ import * as React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  Brain,
-  Code2,
+  Cloud,
   Shield,
+  Code2,
   Rocket,
   ArrowRight,
-  Workflow,
-  Bot,
   CheckCircle2,
-  Sparkles,
+  Clock,
+  DollarSign,
+  Zap,
+  Server,
+  Lock,
+  Cpu,
+  HeadphonesIcon,
+  Bot,
 } from 'lucide-react'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/FooterNew'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
-const services = [
+const serviceCategories = [
   {
-    id: 'ai-strategy',
-    icon: Brain,
-    title: 'AI Strategy & Advisory',
-    tagline: 'From vision to roadmap',
+    id: 'aws-infrastructure',
+    icon: Cloud,
+    title: 'AWS Infrastructure',
+    tagline: 'Production-ready in days, not months',
     description:
-      'Define your AI strategy with clear business objectives, prioritized use cases, and measurable KPIs. We help you navigate the AI landscape and identify opportunities that drive real business value.',
-    features: [
-      'AI Readiness Assessment',
-      'Use Case Discovery & Prioritization',
-      'ROI Analysis & Business Case Development',
-      'Technology Stack Recommendations',
-      'Implementation Roadmap',
-      'Risk Assessment & Mitigation Planning',
-    ],
-    outcomes: [
-      'Clear AI vision aligned with business goals',
-      'Prioritized use case portfolio',
-      'Detailed implementation timeline',
-      'Stakeholder alignment and buy-in',
+      'Complete AWS infrastructure setup with VPC, compute, databases, and CI/CD. All delivered as Terraform code you own.',
+    packages: [
+      {
+        name: 'Launchpad Starter',
+        price: '$2,999',
+        delivery: '7 days',
+        description: 'Perfect for startups launching their first production app',
+        features: [
+          'AWS account setup with best practices',
+          'VPC with public/private subnets',
+          'EC2 or Fargate for your application',
+          'RDS PostgreSQL or Aurora Serverless',
+          'S3 + CloudFront CDN',
+          'SSL certificates & IAM roles',
+          'Complete Terraform code',
+          '14-day support included',
+        ],
+      },
+      {
+        name: 'Launchpad Professional',
+        price: '$7,999',
+        delivery: '14 days',
+        popular: true,
+        description: 'For growing startups ready to professionalize',
+        features: [
+          'Everything in Starter, plus:',
+          'CI/CD pipeline (GitHub Actions)',
+          'Automated staging/production deploys',
+          'CloudWatch dashboards & alarms',
+          'Auto-scaling configuration',
+          'Secrets Manager setup',
+          'WAF rules & security groups',
+          '30-day support included',
+        ],
+      },
+      {
+        name: 'Launchpad Enterprise',
+        price: '$19,999',
+        delivery: '21 days',
+        description: 'Production-grade, multi-environment infrastructure',
+        features: [
+          'Everything in Professional, plus:',
+          'Multi-environment (dev/staging/prod)',
+          'AWS Organizations setup',
+          'ECS or EKS orchestration',
+          'GuardDuty & Security Hub',
+          'Disaster recovery setup',
+          'ElastiCache + SQS/SNS',
+          '90-day support included',
+        ],
+      },
     ],
     color: 'from-blue-500 to-cyan-500',
     bgColor: 'bg-blue-500/10',
   },
   {
-    id: 'ai-implementation',
-    icon: Bot,
-    title: 'AI Implementation',
-    tagline: 'Production-ready AI systems',
+    id: 'security-compliance',
+    icon: Shield,
+    title: 'Security & Compliance',
+    tagline: 'Enterprise-ready security posture',
     description:
-      'Build and deploy AI solutions that work in the real world. From agentic systems to RAG pipelines, we bring deep technical expertise to move your AI from proof of concept to production.',
-    features: [
-      'Agentic AI System Design',
-      'RAG Pipeline Development',
-      'LLM Integration & Orchestration',
-      'Custom Model Fine-tuning',
-      'Prompt Engineering & Optimization',
-      'AI Safety & Guardrails Implementation',
-    ],
-    outcomes: [
-      'Production-ready AI applications',
-      'Scalable, maintainable AI architecture',
-      'Reduced hallucinations and errors',
-      'Measurable performance improvements',
-    ],
-    color: 'from-violet-500 to-purple-500',
-    bgColor: 'bg-violet-500/10',
-  },
-  {
-    id: 'modern-development',
-    icon: Code2,
-    title: 'Modern Development',
-    tagline: 'React & TypeScript expertise',
-    description:
-      'Build performant, accessible frontends that showcase your AI capabilities. We specialize in React, Next.js, and TypeScript to deliver exceptional user experiences.',
-    features: [
-      'React & Next.js Development',
-      'TypeScript Implementation',
-      'Design System Creation',
-      'Component Library Development',
-      'Performance Optimization',
-      'Accessibility (WCAG 2.1 AA)',
-    ],
-    outcomes: [
-      'Fast, responsive applications',
-      'Consistent design language',
-      'Improved developer productivity',
-      'Better user engagement metrics',
+      'From quick security audits to full SOC 2 preparation. We help you meet compliance requirements and protect your infrastructure.',
+    packages: [
+      {
+        name: 'Security Shield Audit',
+        price: '$2,999',
+        delivery: '5 days',
+        description: 'Quick security health check',
+        features: [
+          'AWS Security Hub assessment',
+          'IAM policy review',
+          'Network security analysis',
+          'S3 bucket security audit',
+          'Public exposure scan',
+          'Prioritized remediation roadmap',
+          'Executive summary report',
+          '30-minute review call',
+        ],
+      },
+      {
+        name: 'Security Shield Comprehensive',
+        price: '$7,999',
+        delivery: '10 days',
+        popular: true,
+        description: 'Full security posture assessment',
+        features: [
+          'Everything in Audit, plus:',
+          'CloudTrail log analysis',
+          'GuardDuty findings review',
+          'Secrets management assessment',
+          'Incident response plan review',
+          'Compliance mapping (SOC2/HIPAA)',
+          '8 hours remediation included',
+          '60-minute executive briefing',
+        ],
+      },
+      {
+        name: 'SOC 2 Accelerator',
+        price: '$24,999',
+        delivery: '90 days',
+        description: 'Complete SOC 2 Type 1 readiness',
+        features: [
+          'Gap analysis & readiness assessment',
+          'Policy document generation (20+)',
+          'Control implementation guidance',
+          'Compliance platform setup',
+          'Evidence collection system',
+          'Employee training materials',
+          'Auditor coordination',
+          '90-day support through audit',
+        ],
+      },
     ],
     color: 'from-emerald-500 to-teal-500',
     bgColor: 'bg-emerald-500/10',
   },
   {
-    id: 'devops',
-    icon: Workflow,
-    title: 'DevOps Excellence',
-    tagline: 'Ship faster with confidence',
+    id: 'application-development',
+    icon: Code2,
+    title: 'Application Development',
+    tagline: 'Modern apps, AI-powered speed',
     description:
-      'Accelerate your delivery pipeline with modern DevOps practices. CI/CD automation, infrastructure as code, and platform engineering to help your team ship faster and more reliably.',
-    features: [
-      'CI/CD Pipeline Design & Implementation',
-      'Infrastructure as Code (Terraform, Pulumi)',
-      'Kubernetes & Container Orchestration',
-      'Observability & Monitoring Setup',
-      'GitOps Workflow Implementation',
-      'Platform Engineering',
+      'Next.js applications from landing pages to full-stack MVPs. Built with TypeScript, Tailwind, and AWS best practices.',
+    packages: [
+      {
+        name: 'Landing Page Pro',
+        price: '$2,999',
+        delivery: '5 days',
+        description: 'High-converting marketing sites',
+        features: [
+          'Custom Next.js 15 landing page',
+          'Mobile-first responsive design',
+          'Up to 5 sections/pages',
+          'Contact form with email',
+          'SEO optimization',
+          'Analytics integration',
+          '90+ Lighthouse score',
+          'Vercel/Amplify deployment',
+        ],
+      },
+      {
+        name: 'MVP Builder',
+        price: '$14,999',
+        delivery: '4 weeks',
+        popular: true,
+        description: 'Full-stack apps for startups',
+        features: [
+          'Complete Next.js application',
+          'User authentication (Cognito/Clerk)',
+          'PostgreSQL + Prisma',
+          '5-10 core features',
+          'Admin dashboard',
+          'REST or GraphQL API',
+          'AWS deployment',
+          '30-day support included',
+        ],
+      },
+      {
+        name: 'AI Integration Sprint',
+        price: '$9,999',
+        delivery: '2 weeks',
+        description: 'Add AI to existing apps',
+        features: [
+          'AI use case discovery',
+          'Claude/GPT/Bedrock integration',
+          'RAG pipeline setup',
+          'Prompt engineering',
+          'Rate limiting & cost controls',
+          'Production deployment',
+          'Usage monitoring dashboard',
+          '30-day support included',
+        ],
+      },
     ],
-    outcomes: [
-      'Faster deployment cycles',
-      'Reduced manual toil',
-      'Improved system reliability',
-      'Better visibility into system health',
+    color: 'from-violet-500 to-purple-500',
+    bgColor: 'bg-violet-500/10',
+  },
+  {
+    id: 'managed-services',
+    icon: HeadphonesIcon,
+    title: 'Managed Services',
+    tagline: 'We run it, you build it',
+    description:
+      'Ongoing DevOps support and fully managed infrastructure. From advisory hours to complete infrastructure management.',
+    packages: [
+      {
+        name: 'DevOps Guardian',
+        price: 'From $1,999/mo',
+        delivery: 'Ongoing',
+        description: '8-40 hours monthly DevOps support',
+        features: [
+          'Dedicated support hours',
+          'Infrastructure troubleshooting',
+          'CI/CD maintenance',
+          'Security patching',
+          'Performance investigations',
+          'Architecture consultations',
+          'Slack channel access',
+          '4-8 hour response SLA',
+        ],
+      },
+      {
+        name: 'Autopilot Managed',
+        price: 'From $2,499/mo',
+        delivery: 'Ongoing',
+        popular: true,
+        description: 'Full infrastructure management',
+        features: [
+          '24/7 monitoring & alerting',
+          'Incident response & resolution',
+          'Security patching & updates',
+          'Monthly cost optimization',
+          'Backup verification',
+          '99.9%+ uptime SLA',
+          'Weekly/monthly reviews',
+          'Dedicated engineer',
+        ],
+      },
+      {
+        name: 'Fractional CTO',
+        price: '$4,999/mo',
+        delivery: '16 hrs/month',
+        description: 'Senior technical leadership',
+        features: [
+          'Strategic technical planning',
+          'Architecture decisions',
+          'Vendor evaluations',
+          'Team mentorship',
+          'Hiring support',
+          'Board/investor updates',
+          'Weekly strategy sessions',
+          'Async Slack access',
+        ],
+      },
     ],
     color: 'from-orange-500 to-amber-500',
     bgColor: 'bg-orange-500/10',
   },
+]
+
+const differentiators = [
   {
-    id: 'security',
-    icon: Shield,
-    title: 'Security & Compliance',
-    tagline: 'Enterprise-grade protection',
-    description:
-      'Build security into your AI systems from day one. We help you navigate compliance requirements and implement responsible AI governance practices.',
-    features: [
-      'Security Architecture Review',
-      'Compliance Framework Implementation',
-      'AI Governance & Ethics',
-      'Data Privacy & Protection',
-      'Penetration Testing & Vulnerability Assessment',
-      'SOC 2, HIPAA, GDPR Compliance',
-    ],
-    outcomes: [
-      'Reduced security risk',
-      'Compliance certification readiness',
-      'Responsible AI practices',
-      'Stakeholder confidence',
-    ],
-    color: 'from-red-500 to-rose-500',
-    bgColor: 'bg-red-500/10',
+    icon: Clock,
+    title: '70% Faster',
+    description: 'AI-augmented workflows deliver in days what takes others weeks',
   },
   {
-    id: 'scale-optimize',
-    icon: Rocket,
-    title: 'Scale & Optimize',
-    tagline: 'Performance at scale',
-    description:
-      'Optimize your AI workloads for performance and cost. From MLOps pipelines to cost management strategies, we help you scale efficiently.',
-    features: [
-      'MLOps Pipeline Implementation',
-      'Cost Optimization Strategies',
-      'Performance Tuning & Profiling',
-      'Auto-scaling Configuration',
-      'Model Serving Optimization',
-      'Resource Right-sizing',
-    ],
-    outcomes: [
-      'Reduced cloud spend',
-      'Improved response times',
-      'Higher throughput',
-      'Predictable scaling',
-    ],
-    color: 'from-pink-500 to-fuchsia-500',
-    bgColor: 'bg-pink-500/10',
+    icon: DollarSign,
+    title: 'Fixed Pricing',
+    description: 'No surprise bills. Know your costs upfront, every time.',
+  },
+  {
+    icon: Zap,
+    title: 'Senior Engineers',
+    description: '10+ years experience. No juniors learning on your dime.',
+  },
+  {
+    icon: Code2,
+    title: 'You Own the Code',
+    description: 'Full Terraform/IaC included. No vendor lock-in.',
   },
 ]
 
-const engagementModels = [
+const specialOfferings = [
   {
-    title: 'Strategic Advisory',
-    description: 'Ongoing guidance and strategic support for your AI initiatives',
-    duration: 'Monthly retainer',
-    bestFor: 'Organizations building AI capabilities',
+    icon: Rocket,
+    title: 'Free AWS Well-Architected Review',
+    description: 'Professional assessment + $5,000 AWS credits for qualified workloads',
+    cta: 'Book Free Review',
+    href: '/contact?service=well-architected-review',
   },
   {
-    title: 'Project-Based',
-    description: 'Defined scope, timeline, and deliverables for specific initiatives',
-    duration: '2-6 months typical',
-    bestFor: 'Clear project requirements',
+    icon: DollarSign,
+    title: 'Cost Crusher Program',
+    description: 'We find 20%+ savings or analysis is free. Pay 50% of first-year savings.',
+    cta: 'Get Cost Analysis',
+    href: '/contact?service=cost-optimization',
   },
   {
-    title: 'Team Augmentation',
-    description: 'Embedded expertise to accelerate your existing teams',
-    duration: 'Flexible duration',
-    bestFor: 'Scaling engineering capacity',
+    icon: Zap,
+    title: 'Emergency Response',
+    description: '24/7 availability for critical incidents. 30-minute response time.',
+    cta: 'Emergency Help',
+    href: '/contact?service=emergency',
   },
 ]
 
@@ -204,12 +335,12 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="bg-slate-950">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden bg-white dark:bg-zinc-950">
-          <div className="absolute inset-0 bg-grid opacity-50 dark:opacity-30" />
-          <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl" />
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950" />
+          <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
 
           <div className="container-wide relative z-10">
             <div className="max-w-3xl mx-auto text-center">
@@ -218,9 +349,9 @@ export default function ServicesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <Badge variant="secondary" className="mb-6 px-4 py-2">
-                  <Sparkles className="w-3.5 h-3.5 mr-2" />
-                  Our Services
+                <Badge className="mb-6 px-4 py-2 bg-blue-500/10 text-blue-400 border-blue-500/20">
+                  <Bot className="w-3.5 h-3.5 mr-2" />
+                  AI-Augmented Delivery
                 </Badge>
               </motion.div>
 
@@ -228,20 +359,23 @@ export default function ServicesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6"
               >
-                End-to-End{' '}
-                <span className="text-gradient">AI Enablement</span>
+                Fixed-Price{' '}
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  AWS & DevOps
+                </span>{' '}
+                Packages
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-8"
+                className="text-lg sm:text-xl text-slate-400 mb-8"
               >
-                From strategy to production, we provide the technical expertise your team
-                needs to successfully adopt and scale AI initiatives.
+                Production infrastructure in days, not months. Senior engineers + AI tooling
+                = enterprise quality at startup prices.
               </motion.p>
 
               <motion.div
@@ -250,17 +384,24 @@ export default function ServicesPage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Button variant="gradient" size="xl" asChild>
-                  <Link href="/contact">
-                    <span className="relative z-10 flex items-center">
-                      Schedule a Consultation
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </span>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white"
+                  asChild
+                >
+                  <Link href="/pricing">
+                    View All Pricing
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="xl" asChild>
-                  <Link href="/assessment">
-                    Take AI Assessment
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-slate-700 text-slate-300 hover:bg-slate-800"
+                  asChild
+                >
+                  <Link href="/contact?service=well-architected-review">
+                    Free AWS Review
                   </Link>
                 </Button>
               </motion.div>
@@ -268,122 +409,193 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services Detail Section */}
-        <section className="section bg-zinc-50 dark:bg-zinc-900/50">
+        {/* Differentiators */}
+        <section className="py-16 border-y border-slate-800">
           <div className="container-wide">
             <motion.div
               variants={container}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="space-y-24"
+              className="grid grid-cols-2 md:grid-cols-4 gap-8"
             >
-              {services.map((service, index) => (
+              {differentiators.map((diff) => (
                 <motion.div
-                  key={service.id}
+                  key={diff.title}
                   variants={item}
-                  id={service.id}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                    index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                  }`}
+                  className="text-center"
                 >
-                  {/* Content */}
-                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <div
-                      className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} mb-6`}
-                    >
-                      <service.icon className="w-7 h-7 text-white" />
-                    </div>
-
-                    <p className="text-brand-600 dark:text-brand-400 font-medium mb-2">
-                      {service.tagline}
-                    </p>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
-                      {service.title}
-                    </h2>
-                    <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
-                      {service.description}
-                    </p>
-
-                    {/* Features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                      {service.features.map((feature) => (
-                        <div key={feature} className="flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                          <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Button variant="outline" asChild>
-                      <Link href="/contact">
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 mb-4">
+                    <diff.icon className="w-6 h-6 text-cyan-400" />
                   </div>
-
-                  {/* Outcomes Card */}
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className={`${service.bgColor} rounded-3xl p-8`}>
-                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-6">
-                        Expected Outcomes
-                      </h3>
-                      <ul className="space-y-4">
-                        {service.outcomes.map((outcome) => (
-                          <li key={outcome} className="flex items-start gap-3">
-                            <div
-                              className={`w-6 h-6 rounded-full bg-gradient-to-br ${service.color} flex items-center justify-center flex-shrink-0 mt-0.5`}
-                            >
-                              <CheckCircle2 className="w-4 h-4 text-white" />
-                            </div>
-                            <span className="text-zinc-700 dark:text-zinc-300">
-                              {outcome}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{diff.title}</h3>
+                  <p className="text-sm text-slate-400">{diff.description}</p>
                 </motion.div>
               ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Service Comparison Table */}
-        <section className="section bg-white dark:bg-zinc-950">
-          <div className="container-wide">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <motion.p
+        {/* Service Categories */}
+        {serviceCategories.map((category, categoryIndex) => (
+          <section
+            key={category.id}
+            id={category.id}
+            className={`py-20 ${categoryIndex % 2 === 1 ? 'bg-slate-900/50' : ''}`}
+          >
+            <div className="container-wide">
+              {/* Category Header */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-brand-600 dark:text-brand-400 font-medium mb-4"
+                className="text-center mb-16"
               >
-                Compare Options
-              </motion.p>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                <div
+                  className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} mb-6`}
+                >
+                  <category.icon className="w-7 h-7 text-white" />
+                </div>
+                <p className="text-cyan-400 font-medium mb-2">{category.tagline}</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                  {category.title}
+                </h2>
+                <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                  {category.description}
+                </p>
+              </motion.div>
+
+              {/* Package Cards */}
+              <motion.div
+                variants={container}
+                initial="hidden"
+                whileInView="show"
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4"
+                className="grid grid-cols-1 md:grid-cols-3 gap-6"
               >
-                Which Service Is Right for You?
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-lg text-zinc-600 dark:text-zinc-400"
-              >
-                Not sure where to start? Here&apos;s a quick guide to help you choose.
-              </motion.p>
+                {category.packages.map((pkg) => (
+                  <motion.div
+                    key={pkg.name}
+                    variants={item}
+                    className={`relative rounded-2xl border ${
+                      pkg.popular
+                        ? 'border-cyan-500/50 bg-gradient-to-b from-cyan-500/10 to-transparent'
+                        : 'border-slate-800 bg-slate-900/50'
+                    } p-6`}
+                  >
+                    {pkg.popular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <Badge className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white border-0">
+                          Most Popular
+                        </Badge>
+                      </div>
+                    )}
+
+                    <div className="mb-6">
+                      <h3 className="text-xl font-semibold text-white mb-1">{pkg.name}</h3>
+                      <p className="text-sm text-slate-400 mb-4">{pkg.description}</p>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-3xl font-bold text-white">{pkg.price}</span>
+                        <span className="text-slate-400">• {pkg.delivery}</span>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-3 mb-6">
+                      {pkg.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-slate-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Button
+                      className={`w-full ${
+                        pkg.popular
+                          ? 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white'
+                          : 'bg-slate-800 hover:bg-slate-700 text-white'
+                      }`}
+                      asChild
+                    >
+                      <Link href={`/contact?service=${encodeURIComponent(pkg.name)}`}>
+                        Get Started
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
+          </section>
+        ))}
+
+        {/* Special Offerings */}
+        <section className="py-20 bg-slate-900/50">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Special Programs
+              </h2>
+              <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                Flexible options for every situation
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            >
+              {specialOfferings.map((offering) => (
+                <motion.div
+                  key={offering.title}
+                  variants={item}
+                  className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6"
+                >
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 mb-4">
+                    <offering.icon className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">{offering.title}</h3>
+                  <p className="text-slate-400 mb-6">{offering.description}</p>
+                  <Button
+                    variant="outline"
+                    className="w-full border-slate-700 text-slate-300 hover:bg-slate-800"
+                    asChild
+                  >
+                    <Link href={offering.href}>
+                      {offering.cta}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Comparison Table */}
+        <section className="py-20">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Why Digital DevOps?
+              </h2>
+              <p className="text-lg text-slate-400">
+                See how we compare to traditional options
+              </p>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -393,173 +605,60 @@ export default function ServicesPage() {
             >
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="border-b border-zinc-200 dark:border-zinc-800">
-                    <th className="text-left py-4 px-6 text-sm font-semibold text-zinc-900 dark:text-white">
-                      If you need...
+                  <tr className="border-b border-slate-800">
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-white">
+                      Service
                     </th>
-                    <th className="text-left py-4 px-6 text-sm font-semibold text-zinc-900 dark:text-white">
-                      Start with
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-slate-400">
+                      Traditional Firm
                     </th>
-                    <th className="text-left py-4 px-6 text-sm font-semibold text-zinc-900 dark:text-white">
-                      Timeline
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-slate-400">
+                      Freelancer
+                    </th>
+                    <th className="text-left py-4 px-6 text-sm font-semibold text-cyan-400">
+                      Digital DevOps
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
-                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
-                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
-                      Clarity on AI opportunities & roadmap
-                    </td>
-                    <td className="py-4 px-6">
-                      <Link href="#ai-strategy" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
-                        AI Strategy & Advisory
-                      </Link>
-                    </td>
-                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-4 weeks</td>
+                <tbody className="divide-y divide-slate-800">
+                  <tr className="hover:bg-slate-900/50">
+                    <td className="py-4 px-6 text-slate-300">AWS Setup</td>
+                    <td className="py-4 px-6 text-slate-500">$25K-$50K</td>
+                    <td className="py-4 px-6 text-slate-500">$5K-$15K</td>
+                    <td className="py-4 px-6 text-cyan-400 font-semibold">$2,999-$19,999</td>
                   </tr>
-                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
-                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
-                      To build production AI systems
-                    </td>
-                    <td className="py-4 px-6">
-                      <Link href="#ai-implementation" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
-                        AI Implementation
-                      </Link>
-                    </td>
-                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-6 months</td>
+                  <tr className="hover:bg-slate-900/50">
+                    <td className="py-4 px-6 text-slate-300">Delivery Time</td>
+                    <td className="py-4 px-6 text-slate-500">4-8 weeks</td>
+                    <td className="py-4 px-6 text-slate-500">2-4 weeks</td>
+                    <td className="py-4 px-6 text-cyan-400 font-semibold">1-3 weeks</td>
                   </tr>
-                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
-                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
-                      Modern web applications
-                    </td>
-                    <td className="py-4 px-6">
-                      <Link href="#modern-development" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
-                        Modern Development
-                      </Link>
-                    </td>
-                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">1-4 months</td>
+                  <tr className="hover:bg-slate-900/50">
+                    <td className="py-4 px-6 text-slate-300">SOC 2 Prep</td>
+                    <td className="py-4 px-6 text-slate-500">$50K-$100K</td>
+                    <td className="py-4 px-6 text-slate-500">N/A</td>
+                    <td className="py-4 px-6 text-cyan-400 font-semibold">$24,999</td>
                   </tr>
-                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
-                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
-                      Faster, safer deployments
-                    </td>
-                    <td className="py-4 px-6">
-                      <Link href="#devops" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
-                        DevOps Excellence
-                      </Link>
-                    </td>
-                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">1-3 months</td>
+                  <tr className="hover:bg-slate-900/50">
+                    <td className="py-4 px-6 text-slate-300">Monthly Support</td>
+                    <td className="py-4 px-6 text-slate-500">$15K-$30K</td>
+                    <td className="py-4 px-6 text-slate-500">$5K-$10K</td>
+                    <td className="py-4 px-6 text-cyan-400 font-semibold">$1,999-$9,999</td>
                   </tr>
-                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
-                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
-                      Compliance & security review
-                    </td>
-                    <td className="py-4 px-6">
-                      <Link href="#security" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
-                        Security & Compliance
-                      </Link>
-                    </td>
-                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-8 weeks</td>
-                  </tr>
-                  <tr className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
-                    <td className="py-4 px-6 text-zinc-600 dark:text-zinc-400">
-                      Performance & cost optimization
-                    </td>
-                    <td className="py-4 px-6">
-                      <Link href="#scale-optimize" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
-                        Scale & Optimize
-                      </Link>
-                    </td>
-                    <td className="py-4 px-6 text-zinc-500 dark:text-zinc-400">2-6 weeks</td>
+                  <tr className="hover:bg-slate-900/50">
+                    <td className="py-4 px-6 text-slate-300">IaC Included</td>
+                    <td className="py-4 px-6 text-slate-500">Sometimes</td>
+                    <td className="py-4 px-6 text-slate-500">Rarely</td>
+                    <td className="py-4 px-6 text-cyan-400 font-semibold">Always</td>
                   </tr>
                 </tbody>
               </table>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="mt-8 text-center"
-            >
-              <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                Not sure? We can help you figure out the right approach.
-              </p>
-              <Button variant="outline" asChild>
-                <Link href="/assessment">
-                  Take Our AI Readiness Assessment
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Engagement Models */}
-        <section className="section bg-zinc-50 dark:bg-zinc-900/50">
-          <div className="container-wide">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-brand-600 dark:text-brand-400 font-medium mb-4"
-              >
-                How We Work
-              </motion.p>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4"
-              >
-                Engagement Models
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-lg text-zinc-600 dark:text-zinc-400"
-              >
-                Flexible engagement options tailored to your needs and timeline.
-              </motion.p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {engagementModels.map((model, index) => (
-                <motion.div
-                  key={model.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="feature-card text-center"
-                >
-                  <h3 className="text-xl font-semibold text-zinc-900 dark:text-white mb-3">
-                    {model.title}
-                  </h3>
-                  <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                    {model.description}
-                  </p>
-                  <div className="space-y-2 text-sm">
-                    <div className="text-brand-600 dark:text-brand-400 font-medium">
-                      {model.duration}
-                    </div>
-                    <div className="text-zinc-500 dark:text-zinc-400">
-                      Best for: {model.bestFor}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="section bg-zinc-900 dark:bg-zinc-950">
+        <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-950">
           <div className="container-wide">
             <div className="max-w-3xl mx-auto text-center">
               <motion.h2
@@ -575,9 +674,10 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-lg text-zinc-400 mb-8"
+                className="text-lg text-slate-400 mb-8"
               >
-                Schedule a free consultation to discuss your AI initiatives and how we can help.
+                Book a free 30-minute consultation to discuss your infrastructure needs.
+                No sales pitch, just honest advice.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -586,22 +686,24 @@ export default function ServicesPage() {
                 transition={{ delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Button variant="gradient" size="xl" asChild>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white"
+                  asChild
+                >
                   <Link href="/contact">
-                    <span className="relative z-10 flex items-center">
-                      Schedule Consultation
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </span>
+                    Schedule Free Consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button
+                  size="lg"
                   variant="outline"
-                  size="xl"
-                  className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white"
+                  className="border-slate-700 text-slate-300 hover:bg-slate-800"
                   asChild
                 >
-                  <Link href="/assessment">
-                    Take AI Assessment
+                  <Link href="/pricing">
+                    View Full Pricing
                   </Link>
                 </Button>
               </motion.div>

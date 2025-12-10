@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { contactFormSchema } from '@/lib/validations/contact'
+import {
+  sendEmail,
+  getContactNotificationEmailHtml,
+  getContactConfirmationEmailHtml,
+} from '@/lib/email'
+
+const TEAM_EMAIL = process.env.CONTACT_FORM_EMAIL || 'hello@digitaldevops.io'
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,7 +20,7 @@ export async function POST(request: NextRequest) {
         {
           success: false,
           error: 'Validation failed',
-          issues: validatedData.error.issues
+          issues: validatedData.error.issues,
         },
         { status: 400 }
       )
@@ -21,11 +28,7 @@ export async function POST(request: NextRequest) {
 
     const data = validatedData.data
 
-    // TODO: Integrate with email service (SendGrid, AWS SES, etc.)
-    // TODO: Store in database for CRM
-    // TODO: Send to Slack/Discord notification
-
-    // For now, log the submission
+    // Log the submission
     console.log('Contact form submission:', {
       name: data.name,
       email: data.email,
@@ -38,8 +41,41 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     })
 
-    // Simulate async processing
-    await new Promise((resolve) => setTimeout(resolve, 500))
+    // Send notification email to team
+    try {
+      await sendEmail({
+        to: TEAM_EMAIL,
+        subject: `New Lead: ${data.name} from ${data.company} - ${data.service}`,
+        html: getContactNotificationEmailHtml({
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          role: data.role,
+          service: data.service,
+          budget: data.budget,
+          timeline: data.timeline,
+          message: data.message,
+        }),
+      })
+    } catch (emailError) {
+      console.error('Failed to send team notification:', emailError)
+      // Continue processing - don't fail the request if team email fails
+    }
+
+    // Send confirmation email to user
+    try {
+      await sendEmail({
+        to: data.email,
+        subject: `Thanks for contacting Digital DevOps!`,
+        html: getContactConfirmationEmailHtml({
+          name: data.name.split(' ')[0], // First name only
+          service: data.service,
+        }),
+      })
+    } catch (emailError) {
+      console.error('Failed to send user confirmation:', emailError)
+      // Continue processing - don't fail the request if confirmation email fails
+    }
 
     return NextResponse.json({
       success: true,
