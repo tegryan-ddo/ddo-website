@@ -159,7 +159,7 @@ export function HeroSectionNew() {
 
                 <Button
                   variant="outline"
-                  className="w-full border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10"
+                  className="w-full border-emerald-500 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 hover:text-emerald-300"
                   asChild
                 >
                   <Link href="/pricing">
