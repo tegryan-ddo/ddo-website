@@ -7,10 +7,9 @@ import {
   ArrowRight,
   Zap,
   Building2,
-  Rocket,
+  Cpu,
   Shield,
-  Clock,
-  DollarSign,
+  TrendingUp,
   Terminal
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -51,7 +50,7 @@ export function HeroSectionNew() {
               className="px-4 py-2 border-blue-500/30 bg-blue-500/10 text-blue-400"
             >
               <Terminal className="w-3.5 h-3.5 mr-2" />
-              AWS Partner • AI-Augmented DevOps
+              AWS Partner • Senior DevOps Engineers
             </Badge>
           </motion.div>
 
@@ -62,9 +61,9 @@ export function HeroSectionNew() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-center text-white mb-6"
           >
-            AI-Augmented DevOps.{' '}
+            Bespoke AWS for{' '}
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              10x Velocity.
+              Fast-Growing Companies
             </span>
           </motion.h1>
 
@@ -75,8 +74,8 @@ export function HeroSectionNew() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto text-center mb-12"
           >
-            Senior DevOps engineers + AI tooling = one person doing the work of ten.
-            We take over your AWS infrastructure and ship at startup speed.
+            For AI/tech startups that have outgrown Vercel and basic hosting.
+            Custom architecture, scaling solutions, and senior expertise—not cookie-cutter packages.
           </motion.p>
 
           {/* Dual Path Cards */}
@@ -86,32 +85,32 @@ export function HeroSectionNew() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="grid md:grid-cols-2 gap-6 mb-16"
           >
-            {/* Enterprise Path */}
+            {/* Growth Stage */}
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur" />
               <div className="relative bg-slate-900 border border-slate-800 rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-blue-500/20 rounded-lg">
-                    <Building2 className="w-6 h-6 text-blue-400" />
+                    <Cpu className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">Enterprise</h3>
-                    <p className="text-sm text-slate-400">Full Infrastructure Takeover</p>
+                    <h3 className="text-xl font-semibold text-white">AI/Tech Startups</h3>
+                    <p className="text-sm text-slate-400">Series A/B with scaling challenges</p>
                   </div>
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center gap-2 text-slate-300">
+                    <TrendingUp className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                    <span>Custom AWS architecture for scale</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-300">
                     <Zap className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                    <span>We become your DevOps team</span>
+                    <span>GPU & AI workload optimization</span>
                   </li>
                   <li className="flex items-center gap-2 text-slate-300">
                     <Shield className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                    <span>Security & compliance included</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-slate-300">
-                    <Clock className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                    <span>24/7 support available</span>
+                    <span>SOC 2 / HIPAA when you need it</span>
                   </li>
                 </ul>
 
@@ -120,50 +119,50 @@ export function HeroSectionNew() {
                   className="w-full bg-gradient-to-r from-blue-500 to-cyan-500"
                   asChild
                 >
-                  <Link href="/contact?type=enterprise">
-                    Talk to Us
+                  <Link href="/contact?service=growth-infrastructure">
+                    Schedule Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
             </div>
 
-            {/* Startup/SMB Path */}
+            {/* Enterprise */}
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur" />
               <div className="relative bg-slate-900 border border-slate-800 rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-emerald-500/20 rounded-lg">
-                    <Rocket className="w-6 h-6 text-emerald-400" />
+                  <div className="p-2 bg-violet-500/20 rounded-lg">
+                    <Building2 className="w-6 h-6 text-violet-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">Startups & SMB</h3>
-                    <p className="text-sm text-slate-400">Fixed-Price Packages</p>
+                    <h3 className="text-xl font-semibold text-white">Enterprise</h3>
+                    <p className="text-sm text-slate-400">Full DevOps team replacement</p>
                   </div>
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center gap-2 text-slate-300">
-                    <DollarSign className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>AWS setup from $2,999</span>
+                    <Zap className="w-4 h-4 text-violet-400 flex-shrink-0" />
+                    <span>We become your DevOps team</span>
                   </li>
                   <li className="flex items-center gap-2 text-slate-300">
-                    <Clock className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>Delivered in 1-3 weeks</span>
+                    <Shield className="w-4 h-4 text-violet-400 flex-shrink-0" />
+                    <span>24/7 monitoring & incident response</span>
                   </li>
                   <li className="flex items-center gap-2 text-slate-300">
-                    <Shield className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>Security audit included</span>
+                    <TrendingUp className="w-4 h-4 text-violet-400 flex-shrink-0" />
+                    <span>Platform engineering & DX</span>
                   </li>
                 </ul>
 
                 <Button
                   variant="outline"
-                  className="w-full border-emerald-500 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 hover:text-emerald-300"
+                  className="w-full border-violet-500 bg-violet-500/10 text-violet-400 hover:bg-violet-500/20 hover:text-violet-300"
                   asChild
                 >
-                  <Link href="/pricing">
-                    See Packages
+                  <Link href="/contact?service=enterprise-devops">
+                    Talk to Us
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

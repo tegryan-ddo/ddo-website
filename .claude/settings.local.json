@@ -66,7 +66,8 @@
       "Bash(dir:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nComplete DevAIOps website rewrite with service pages and case studies\n\n- Add 4 service detail pages:\n  - /services/enterprise-devops (Full Infrastructure Takeover)\n  - /services/aws-accelerator (SMB AWS Launchpad packages)\n  - /services/security (Security & Compliance)\n  - /services/development (Next.js Application Development)\n- Rewrite case studies with DevAIOps-focused content:\n  - FinTech: Production AWS in 2 weeks\n  - Healthcare: HIPAA compliance in 8 weeks\n  - SaaS: DevOps transformation (10x deploy frequency)\n  - E-commerce: 45% AWS cost reduction\n- Add SEO enhancements:\n  - Dynamic OG images (opengraph-image.tsx, twitter-image.tsx)\n  - Favicon/icon generation (icon.tsx, apple-icon.tsx)\n  - Sitemap and robots.txt\n  - JSON-LD structured data\n- Convert legacy pages to redirects:\n  - /apply → /careers\n  - /hire-us → /contact\n  - /clients → /\n  - /solutions → /services\n- Remove unused legacy components (Header.js, Footer.js, etc.)\n- Add error and not-found pages\n- Update about page with DevAIOps positioning\n- Enhance contact form with email integration\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git push:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []

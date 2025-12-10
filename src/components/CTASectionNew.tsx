@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Calendar, Shield, DollarSign } from 'lucide-react'
+import { ArrowRight, Calendar, Shield, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function CTASectionNew() {
@@ -22,7 +22,7 @@ export function CTASectionNew() {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
-            Ready to 10x Your DevOps Velocity?
+            Ready to Scale Your Infrastructure?
           </motion.h2>
 
           <motion.p
@@ -32,11 +32,11 @@ export function CTASectionNew() {
             transition={{ delay: 0.1 }}
             className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto"
           >
-            Start with a free AWS Well-Architected Review. We'll assess your infrastructure
-            and you could receive $5,000 in AWS credits.
+            Schedule a free 30-minute consultation. We&apos;ll discuss your challenges
+            and whether we&apos;re the right fit—no pressure, no sales pitch.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,17 +55,6 @@ export function CTASectionNew() {
                 Schedule Free Consultation
               </Link>
             </Button>
-            <Button
-              variant="outline"
-              size="xl"
-              className="border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
-              asChild
-            >
-              <Link href="/pricing">
-                View Packages & Pricing
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
           </motion.div>
 
           {/* Trust badges */}
@@ -77,18 +66,18 @@ export function CTASectionNew() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-400"
           >
             <div className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-emerald-400" />
+              <span>Senior engineers only (10+ yrs)</span>
+            </div>
+            <div className="hidden sm:block w-1 h-1 bg-slate-600 rounded-full" />
+            <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-emerald-400" />
-              <span>30-day money-back guarantee</span>
+              <span>95% client retention rate</span>
             </div>
             <div className="hidden sm:block w-1 h-1 bg-slate-600 rounded-full" />
             <div className="flex items-center gap-2">
-              <DollarSign className="w-4 h-4 text-emerald-400" />
-              <span>Fixed pricing, no surprises</span>
-            </div>
-            <div className="hidden sm:block w-1 h-1 bg-slate-600 rounded-full" />
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-emerald-400" />
-              <span>Start within 48 hours</span>
+              <ArrowRight className="w-4 h-4 text-emerald-400" />
+              <span>We&apos;ll tell you if we&apos;re not the right fit</span>
             </div>
           </motion.div>
         </div>

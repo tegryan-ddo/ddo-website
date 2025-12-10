@@ -6,10 +6,7 @@ import { motion } from 'framer-motion'
 import {
   Cloud,
   Shield,
-  Headphones,
   Settings,
-  Code,
-  Brain,
   ArrowRight,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -18,10 +15,7 @@ import { serviceHighlights } from '@/lib/data/services'
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Cloud,
   Shield,
-  Headphones,
   Settings,
-  Code,
-  Brain,
 }
 
 const container = {
@@ -60,7 +54,7 @@ export function ServicesGrid() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl font-bold text-white mb-4"
           >
-            End-to-End AWS & DevOps Services
+            Bespoke AWS for Growing Companies
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -69,8 +63,8 @@ export function ServicesGrid() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400"
           >
-            From initial setup to full managed services. Fixed pricing,
-            fast delivery, and AI-augmented efficiency.
+            Custom infrastructure for AI/tech startups that have outgrown basic hosting.
+            Senior engineers, real solutions, no cookie-cutter packages.
           </motion.p>
         </div>
 
@@ -80,7 +74,7 @@ export function ServicesGrid() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {serviceHighlights.map((service) => {
             const IconComponent = iconMap[service.icon] || Cloud
@@ -112,7 +106,6 @@ export function ServicesGrid() {
                     {/* Price */}
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-slate-500">
-                        Starting at{' '}
                         <span className="text-white font-medium">
                           {service.startingPrice}
                         </span>
@@ -139,8 +132,8 @@ export function ServicesGrid() {
             className="border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300"
             asChild
           >
-            <Link href="/pricing">
-              View All Packages & Pricing
+            <Link href="/contact?type=consultation">
+              Schedule a Consultation
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
