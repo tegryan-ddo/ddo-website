@@ -180,7 +180,11 @@ export default function CaseStudiesPage() {
                       ))}
                     </div>
 
-                    <Button variant="outline" asChild>
+                    <Button 
+                      variant="outline" 
+                      className="border-slate-700 bg-transparent text-white hover:bg-slate-800 hover:text-white"
+                      asChild
+                    >
                       <Link href={`/case-studies/${study.id}`}>
                         Read Full Case Study
                         <ArrowUpRight className="ml-2 h-4 w-4" />
