@@ -622,7 +622,7 @@ export default function AssessmentPage() {
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>
-                    <Button variant="outline" size="lg" asChild>
+                    <Button variant="outline" size="lg" asChild className="bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white border-2">
                       <Link href="/services">View Services</Link>
                     </Button>
                   </div>

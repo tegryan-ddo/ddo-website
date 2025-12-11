@@ -102,6 +102,12 @@ const comparison = [
   { metric: 'Cost visibility', traditional: 'Monthly reports', devaiops: 'Real-time dashboards' },
 ]
 
+
+export const metadata = {
+  title: 'Enterprise DevOps & Infrastructure Takeover | Digital DevOps',
+  description: 'Complete DevOps function ownership. We become your DevOps team - architecting, building, and operating your AWS infrastructure.',
+}
+
 export default function EnterpriseDevOpsPage() {
   return (
     <>

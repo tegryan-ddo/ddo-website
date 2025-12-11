@@ -126,6 +126,12 @@ const included = [
   'Post-delivery support',
 ]
 
+
+export const metadata = {
+  title: 'AWS Launchpad & Accelerator Packages | Digital DevOps',
+  description: 'Launch production-ready AWS infrastructure in 7-21 days. Fixed-price packages including Terraform code, CI/CD, and documentation.',
+}
+
 export default function AWSAcceleratorPage() {
   return (
     <>

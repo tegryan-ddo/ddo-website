@@ -105,6 +105,12 @@ const capabilities = [
   { icon: Palette, title: 'Design Systems', description: 'Consistent, scalable UI' },
 ]
 
+
+export const metadata = {
+  title: 'Next.js Application Development & MVP Building | Digital DevOps',
+  description: 'Custom Next.js web application development. From high-converting landing pages to full-stack MVPs with AI integration options.',
+}
+
 export default function DevelopmentPage() {
   return (
     <>
