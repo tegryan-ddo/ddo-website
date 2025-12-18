@@ -1,0 +1,58 @@
+name: Publish Content
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'slides/**'
+      - '.github/workflows/publish-content.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'slides/**'
+      - '.github/workflows/publish-content.yml'
+
+jobs:
+  build-slides:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install marp-cli
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Create output directory
+        run: mkdir -p public/decks
+
+      - name: Build PDF slide deck
+        run: marp slides/enkai.md --pdf --output public/decks/enkai.pdf
+
+      - name: Build HTML slide deck
+        run: marp slides/enkai.md --html --output public/decks/enkai.html
+
+      - name: Upload slide artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: slide-decks
+          path: public/decks/
+          retention-days: 30
+
+      # Only commit on main branch pushes (not PRs)
+      - name: Commit and push generated decks
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/decks/
+          git diff --staged --quiet || git commit -m "chore: regenerate slide decks [skip ci]"
+          git push
